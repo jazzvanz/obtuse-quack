@@ -42,6 +42,7 @@ app.searchLocale = function() {
 
 //display list of matched results
 app.displayResults = function(res) {
+
 		$.each(res, function(index, value) {
 			var name = res[index].name;
 			var link = res[index].link;
@@ -50,15 +51,15 @@ app.displayResults = function(res) {
 			var country = res[index].country;
 			var state = res[index].state;
 			var timezone = res[index].timezone;
-			var time = res[index].next_event.time;
-			var photo = res[index].group_photo.photo_link;
+//			var time = res[index].next_event.time;
+//			var photo = res[index].group_photo.photo_link;
+			console.log(name, link, description, city, country, state, timezone);
 		});
-
-		console.log(name, link, description, city, country, state, timezone, time, photo);
+		
 }; 
 
 // Init app
-recipeApp.init = function() {
+app.init = function() {
 	app.searchLocale();
 	// app.formSubmit();
 };
