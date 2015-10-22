@@ -4,7 +4,7 @@ app.zip = '';
 app.radius = 10;
 app.results = {};
 
-//ajax search call
+//ajax search call, creates global called app.results to store all results
 
 app.searchLocale = function() {
 	$.ajax({
