@@ -46,29 +46,32 @@ app.displayResults = function(res) {
 		$.each(res, function(index, value) {
 			var name = res[index].name;
 			var link = res[index].link;
-			var description = res[index].description;
+			var description = $(res[index].description).text();
 			var city = res[index].city;
 			var country = res[index].country;
 			var state = res[index].state;
 			var timezone = res[index].timezone;
 //			var time = res[index].next_event.time;
-//			var photo = res[index].group_photo.photo_link;
-			console.log(name, link, description, city, country, state, timezone);
+			var photo = res[index].group_photo.photo_link;
+			console.log(name, link, description, city, country, state, timezone, photo);
 		});
 		
 }; 
 
+//form submit button push!
+app.formSubmit = function(){
+	app.searchLocale();
+};
+
+
+
+
 // Init app
 app.init = function() {
-	app.searchLocale();
-	// app.formSubmit();
+	app.formSubmit();
 };
 
 // Run app Run!!
 $(document).ready(function(){
   app.init();
 });
-
-
-
-
