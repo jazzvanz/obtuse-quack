@@ -1,5 +1,9 @@
 var app = {};
 app.key = '4864244b3d4841378314f6b6d52487d';
+app.zip = '';
+app.radius = 10;
+
+//ajax search locale only
 
 app.searchLocale = function() {
 	$.ajax({
@@ -8,11 +12,11 @@ app.searchLocale = function() {
 		method: 'GET',
 		data: {
 			key: app.key,
-			zip: 'm6j0a5',
-			radius: '20'
+			zip: app.zip,
+			radius: app.radius
 			}
 		}).then(function(res) {
-				console.log(res);
+				console.log(res.data);
 	});
 }; 
 
