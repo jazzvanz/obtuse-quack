@@ -4,7 +4,7 @@ app.zip = '';
 app.radius = 10;
 app.results = {};
 
-//ajax search call, creates global called app.results to store all results
+//ajax search call, create global call app.results to store all results
 
 app.searchLocale = function() {
 	$.ajax({
@@ -18,7 +18,9 @@ app.searchLocale = function() {
 			radius: app.radius
 			}
 		}).then(function(res) {
+				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
+				app.displayResults(app.results);
 	});
 }; 
 
@@ -39,3 +41,33 @@ app.searchLocale = function() {
 //submit button to initiate search
 
 //display list of matched results
+app.displayResults = function(res) {
+		$.each(res, function(index, value) {
+			var name = res[index].name;
+			var link = res[index].link;
+			var description = res[index].description;
+			var city = res[index].city;
+			var country = res[index].country;
+			var state = res[index].state;
+			var timezone = res[index].timezone;
+			var time = res[index].next_event.time;
+			var photo = res[index].group_photo.photo_link;
+		});
+
+		console.log(name, link, description, city, country, state, timezone, time, photo);
+}; 
+
+// Init app
+recipeApp.init = function() {
+	app.searchLocale();
+	// app.formSubmit();
+};
+
+// Run app Run!!
+$(document).ready(function(){
+  app.init();
+});
+
+
+
+
