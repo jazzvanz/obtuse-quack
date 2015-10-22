@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 gulp.task('styles', function(){
 	return gulp.src('styles/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(concat('style.css'))
+		.pipe(concat('styles.css'))
 		.pipe(autoprefixer('last 2 versions', 'ie8'))
 		.pipe(gulp.dest('styles/'))
 		.pipe(reload({ stream: true }));
