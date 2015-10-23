@@ -81,9 +81,10 @@ app.displayResults = function(res) {
 			
 			// Add a paragraph tag with the description in it
 			description = $('<p>').addClass('description').text(description);
+			var desBox = $("<div>").addClass("descriptBox").append(name, place, description);
 
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
-			var eventBox = $('<div>').addClass('eventBox wrapper').append(name, place, photoDiv, description);
+			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
 			//  Then place the recipeBox in an element with the id of recipe
 			$('#dynaContent').append(eventBox);
