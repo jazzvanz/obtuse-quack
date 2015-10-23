@@ -6,7 +6,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 $grey: #66746A;
-
+$red: #E81031;
+$blue: #4D8CBF;
 
 html {
 	font-size:62.5%;
@@ -190,33 +191,42 @@ aside {
 	// align-items: center;
 	background-color:palegreen;
 	// justify-content: center;
-	p.description{
-		max-width:60%;
-		margin: 0;
-		padding: 1.5rem;
-		font-size: 1.5rem;
-		line-weight: 1.5rem;
-	}
-	p.timeZone{
-		// padding: 1rem 0;
-		margin: 0;
-		color:red;
-	}
-	h2{
-		font-size:4rem;
-		color: black;
-		margin: 0;
-		// padding: 1rem;
-		// text-align: center;
-		// color: red;	
-		line-height:0;
-		height: 20%;
-	}
-	img{
-		max-width: 200px;
-	}
+		.descriptBox {
+			background-color:pink;
+			width:70%;
+				p.description{
+					// max-width:60%;
+					margin: 0;
+					padding: 1.5rem;
+					font-size: 1.7rem;
+					line-weight: 1.5rem;
+				}
+				p.timeZone{
+					margin-top:20px;
+					padding-left:40px;
+					color:red;
+
+				}
+
+				h2{
+					font-size:4rem;
+					color: black;
+					margin: 0;
+					font-color:$grey;
+					line-height:2rem;
+					padding-bottom:20px;
+				
+				}
+		
+		}
 
 	.eventPhoto {
+		width:30%;
+
+		img{
+
+		max-width:100px;
+		}
 
 	}
 }
