@@ -2,7 +2,10 @@ var app = {};
 app.key = '4864244b3d4841378314f6b6d52487d';
 app.zip = '';
 app.radius = 20;
+app.date = '';
 app.results = {};
+
+var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
@@ -20,7 +23,6 @@ app.searchLocale = function() {
 				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
 				// Calling our displayResults function and passing it the results from our ajax request
-				// console.log(app.results);
 				app.displayResults(app.results);
 	});
 }; 
@@ -31,8 +33,10 @@ app.formSubmit = function(){
 		e.preventDefault();
 		$('#dynaContent').empty();
 		app.zip = $('#address').val();
-		console.log(app.zip);
 		app.searchLocale();
+		app.date = $( '#unixDate' ).val();
+
+		console.log(app.date);
 	});
 };
 
@@ -112,8 +116,12 @@ app.displayResults = function(res) {
 // Init app
 app.init = function() {
 	app.formSubmit();
-//	calendar widget for text field
-	$( '#datepicker' ).datepicker();
+//	function of calendar widget for text field
+	$( '#datepicker' ).datepicker({
+		altField: '#unixDate',
+		altFormat: '@',
+		dateFormat: 'mm-dd-yy'
+	});
 };
 
 // Run app Run!!
