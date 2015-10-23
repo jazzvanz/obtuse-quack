@@ -304,26 +304,22 @@ aside {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   padding: 3rem 0;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: palegreen; }
   .eventBox p.description {
+    max-width: 70%;
     margin: 0;
     padding: 1.5rem;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    line-weight: 1.5rem; }
   .eventBox p.timeZone {
-    padding: 1rem 0;
-    margin: 0; }
-  .eventBox h2 {
-    color: black;
     margin: 0;
-    padding: 1rem;
-    text-align: center; }
+    color: red; }
+  .eventBox h2 {
+    font-size: 4rem;
+    color: black;
+    margin: 0; }
   .eventBox img {
     max-width: 200px; }
