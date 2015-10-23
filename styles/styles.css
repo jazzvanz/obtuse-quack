@@ -134,6 +134,16 @@ html {
   font-family: 'Montserrat', sans-serif; }
 
 .wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.wrapperFull {
   width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -285,3 +295,35 @@ aside {
     font-size: 2rem;
     font-weight: 300;
     line-height: 2.2rem; }
+
+.eventBox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 3rem 0;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .eventBox p.description {
+    margin: 0;
+    padding: 1.5rem;
+    font-size: 1.5rem; }
+  .eventBox p.timeZone {
+    padding: 1rem 0;
+    margin: 0; }
+  .eventBox h2 {
+    color: black;
+    margin: 0;
+    padding: 1rem;
+    text-align: center; }
+  .eventBox img {
+    max-width: 200px; }
