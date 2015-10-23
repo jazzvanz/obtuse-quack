@@ -161,7 +161,7 @@ h1 {
   font-weight: 700;
   padding: 50px 0 0 0; }
 
-h2 {
+h2.subTitle {
   color: white;
   font-weight: 400;
   font-size: 2.5rem;
@@ -309,7 +309,7 @@ aside {
           flex-direction: row;
   background-color: palegreen; }
   .eventBox p.description {
-    max-width: 70%;
+    max-width: 60%;
     margin: 0;
     padding: 1.5rem;
     font-size: 1.5rem;
@@ -320,6 +320,8 @@ aside {
   .eventBox h2 {
     font-size: 4rem;
     color: black;
-    margin: 0; }
+    margin: 0;
+    line-height: 0;
+    height: 20%; }
   .eventBox img {
     max-width: 200px; }
