@@ -206,7 +206,7 @@ aside {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto auto;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -214,9 +214,11 @@ aside {
   height: 100%; }
 
 .caseOne {
-  width: 33.33%;
+  width: 32%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   fill: white;
-  background-color: palegreen;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -229,13 +231,17 @@ aside {
     fill: white;
     width: 50%;
     margin: auto 0; }
+    .caseOne .icon svg {
+      width: 70%; }
   .caseOne h4 {
     margin: auto 0;
     color: white;
-    width: 50%; }
+    width: 50%;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 2.2rem; }
 
 .caseTwo {
-  background-color: pink;
   width: 33.33%;
   fill: white;
   display: -webkit-flex;
@@ -251,10 +257,12 @@ aside {
   .caseTwo h4 {
     margin: auto 0;
     color: white;
-    width: 50%; }
+    width: 50%;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 2.2rem; }
 
 .caseThree {
-  background-color: cadetblue;
   width: 33.33%;
   fill: white;
   display: -webkit-flex;
@@ -267,6 +275,9 @@ aside {
     padding: 0;
     fill: white;
     width: 50%; }
+    .caseThree .icon svg {
+      width: 80%;
+      padding-left: 20px; }
   .caseThree h4 {
     margin: auto 0;
     color: white;

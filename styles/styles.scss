@@ -90,7 +90,7 @@ aside {
 .iconcase {
 	display:flex;
 	flex-wrap:wrap;
-	max-width: 1400px;
+	max-width: 1500px;
 	margin:auto auto;
 	align-items: center;
 	height:100%;
@@ -98,9 +98,10 @@ aside {
 }
 
 .caseOne {
-	width:33.33%;
+	width:32%;
+	justify-content: space-between;
 	fill:white;
-	background-color:palegreen;
+	// background-color:palegreen;
 	display:flex;
 	flex-wrap:wrap;
 	// height:100%;
@@ -110,16 +111,22 @@ aside {
 			fill:white;
 			width:50%;
 			margin:auto 0;
+				svg {
+					width:70%;
+				}
 		}
 		h4 {
-			margin: auto 0;
+			margin:auto 0;
 			color:white;
 			width:50%;
+			font-size:2rem;
+			font-weight:300;
+			line-height:2.2rem;
 		}
 }
 
 .caseTwo {
-	background-color:pink;
+	// background-color:pink;
 	width:33.33%;
 	fill:white;
 	display:flex;
@@ -133,11 +140,15 @@ aside {
 			margin:auto 0;
 			color:white;
 			width:50%;
+			font-size:2rem;
+			font-weight:300;
+			line-height:2.2rem;
+			// text-transform: uppercase;
 		}
 }
 
 .caseThree {
-	background-color:cadetblue;
+	// background-color:cadetblue;
 	width:33.33%;
 	fill:white;
 	display:flex;
@@ -146,6 +157,10 @@ aside {
 			padding:0;
 			fill:white;
 			width:50%;
+				svg {
+					width:80%;
+					padding-left:20px
+				}
 		}
 
 		h4 {
