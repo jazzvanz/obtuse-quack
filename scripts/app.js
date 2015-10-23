@@ -55,8 +55,14 @@ app.displayResults = function(res) {
 			// Storing data in variables we can use to output to user
 			var name = res[index].name;
 			var link = res[index].link;
-			// This jquery you see here removes html from the string within res[index].description. We wrapped the value of res[index].description with a div so that the jquery function .text() which expects html in the value will ALWAYS have html to remove. If a value comes from our API but has no HTML in it, it would otherwise give us an error. SO - we hack the jquery function by wrapping the value with html so it will always work and give us back just text like we want.
+			// This jquery you see here removes html from the string within res[index].description. We wrapped the value of res[index].description with a div so that the jquery function .text() which expects html in the value will ALWAYS have html to remove. If a value comes from our API but has no HTML in it, it would otherwise give us an error. SO - we hack .text() by wrapping the value with html so it will always work and give us back just text like we want.
 			var description = $("<div>" + res[index].description + "</div>").text();
+
+			if (description.length > 300) {
+				// Trim the string to 30 characters
+				description = description.substring(0, 300) + '... ';
+			}
+
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
