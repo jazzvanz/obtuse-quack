@@ -112,6 +112,8 @@ app.displayResults = function(res) {
 // Init app
 app.init = function() {
 	app.formSubmit();
+//	calendar widget for text field
+	$( '#datepicker' ).datepicker();
 };
 
 // Run app Run!!
