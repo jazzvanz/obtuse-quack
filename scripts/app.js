@@ -25,6 +25,15 @@ app.searchLocale = function() {
 	});
 }; 
 
+//form submit button push!
+app.formSubmit = function(){
+	$('#submit').on('click', function(e){
+		e.preventDefault();
+		app.zip = $('#address').val();
+		console.log(app.zip);
+	});
+	app.searchLocale();
+};
 
 //ask for geolocation
 
@@ -94,10 +103,6 @@ app.displayResults = function(res) {
 		
 }; 
 
-//form submit button push!
-app.formSubmit = function(){
-	app.searchLocale();
-};
 
 
 // Init app
