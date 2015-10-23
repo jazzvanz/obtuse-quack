@@ -81,16 +81,18 @@ app.displayResults = function(res) {
 			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + timezone + ")");
 
 			// Make an image tag and assign an src and alt attribute to it
+
 			var photo = $('<img>').attr('src', photoLink).attr('alt', 'A picture of the event');
 
 			// Adding a link to the image we just made so user can click image to get to original event source
 			var linkImage = $('<a>').attr('href', link).append(photo);
+			var photoDiv = $('<div>').addClass('eventPhoto').append(linkImage);
 			
 			// Add a paragraph tag with the description in it
 			description = $('<p>').addClass('description').text(description);
 
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
-			var eventBox = $('<div>').addClass('eventBox wrapper').append(name, place, linkImage, description);
+			var eventBox = $('<div>').addClass('eventBox wrapper').append(name, place, photoDiv, description);
 
 			//  Then place the recipeBox in an element with the id of recipe
 			$('#dynaContent').append(eventBox);
