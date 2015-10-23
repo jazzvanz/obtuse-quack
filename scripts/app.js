@@ -1,7 +1,7 @@
 var app = {};
 app.key = '4864244b3d4841378314f6b6d52487d';
 app.zip = '';
-app.radius = 10;
+app.radius = 20;
 app.results = {};
 
 //ajax search call, create global call app.results to store all results
@@ -29,10 +29,11 @@ app.searchLocale = function() {
 app.formSubmit = function(){
 	$('#submit').on('click', function(e){
 		e.preventDefault();
+		$('#dynaContent').empty();
 		app.zip = $('#address').val();
 		console.log(app.zip);
+		app.searchLocale();
 	});
-	app.searchLocale();
 };
 
 //ask for geolocation
