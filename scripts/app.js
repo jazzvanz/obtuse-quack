@@ -5,7 +5,6 @@ app.radius = 10;
 app.results = {};
 
 //ajax search call, create global call app.results to store all results
-
 app.searchLocale = function() {
 	$.ajax({
 		url :'https://api.meetup.com/find/groups?',
@@ -20,12 +19,11 @@ app.searchLocale = function() {
 		}).then(function(res) {
 				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
+				// Calling our displayResults function and passing it the results from our ajax request
+				// console.log(app.results);
 				app.displayResults(app.results);
 	});
 }; 
-
-
-
 
 
 //ask for geolocation
@@ -42,18 +40,56 @@ app.searchLocale = function() {
 
 //display list of matched results
 app.displayResults = function(res) {
-
 		$.each(res, function(index, value) {
+
+			// Storing data in variables we can use to output to user
 			var name = res[index].name;
 			var link = res[index].link;
-			var description = $(res[index].description).text();
+			// This jquery you see here removes html from the string within res[index].description. We wrapped the value of res[index].description with a div so that the jquery function .text() which expects html in the value will ALWAYS have html to remove. If a value comes from our API but has no HTML in it, it would otherwise give us an error. SO - we hack the jquery function by wrapping the value with html so it will always work and give us back just text like we want.
+			var description = $("<div>" + res[index].description + "</div>").text();
 			var city = res[index].city;
-			var country = res[index].country;
 			var state = res[index].state;
+			var country = res[index].country;
 			var timezone = res[index].timezone;
-//			var time = res[index].next_event.time;
-			var photo = res[index].group_photo.photo_link;
-			console.log(name, link, description, city, country, state, timezone, photo);
+		//var time = res[index].next_event.time;
+
+			// if photo link is defined do regular thing, otherwise use our backup image
+			// falsey values: 0, undefined, null, NULL, false
+			// truthy values: any other value including true
+			var photoLink = '';
+			if ( res[index].group_photo && res[index].group_photo.photo_link ) {
+				photoLink = res[index].group_photo.photo_link;
+			} else {
+				photoLink = 'images/noPhoto.jpg';
+			}
+
+// Creating HTML elements to display to user
+
+			// Make an H2 tag with the name variable inside it
+			name = $('<h2>').text(name);
+
+			// Make a p tag with the concatenated values of city, state, country and timezone
+			var place = $('<p>').text(city + ", " + state + ", " + country + ", (" + timezone + ")");
+
+			// Make an image tag and assign an src and alt attribute to it
+			var photo = $('<img>').attr('src', photoLink).attr('alt', 'A picture of the event');
+
+			// Adding a link to the image we just made so user can click image to get to original event source
+			var linkImage = $('<a>').attr('href', link).append(photo);
+			
+			// Add a paragraph tag with the description in it
+			description = $('<p>').addClass('description').text(description);
+
+			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
+			var eventBox = $('<div>').addClass('eventBox').append(name, place, linkImage, description);
+
+			//  Then place the recipeBox in an element with the id of recipe
+			$('#dynaContent').append(eventBox);
+
+			// $.smoothScroll({
+			// 	scrollTarget: '#dynaContent'
+			// });
+
 		});
 		
 }; 
@@ -62,8 +98,6 @@ app.displayResults = function(res) {
 app.formSubmit = function(){
 	app.searchLocale();
 };
-
-
 
 
 // Init app
