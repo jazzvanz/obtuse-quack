@@ -308,20 +308,26 @@ aside {
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: palegreen; }
-  .eventBox p.description {
-    max-width: 60%;
-    margin: 0;
-    padding: 1.5rem;
-    font-size: 1.5rem;
-    line-weight: 1.5rem; }
-  .eventBox p.timeZone {
-    margin: 0;
-    color: red; }
-  .eventBox h2 {
-    font-size: 4rem;
-    color: black;
-    margin: 0;
-    line-height: 0;
-    height: 20%; }
-  .eventBox img {
-    max-width: 200px; }
+  .eventBox .descriptBox {
+    background-color: pink;
+    width: 70%; }
+    .eventBox .descriptBox p.description {
+      margin: 0;
+      padding: 1.5rem;
+      font-size: 1.7rem;
+      line-weight: 1.5rem; }
+    .eventBox .descriptBox p.timeZone {
+      margin-top: 20px;
+      padding-left: 40px;
+      color: red; }
+    .eventBox .descriptBox h2 {
+      font-size: 4rem;
+      color: black;
+      margin: 0;
+      font-color: #66746A;
+      line-height: 2rem;
+      padding-bottom: 20px; }
+  .eventBox .eventPhoto {
+    width: 30%; }
+    .eventBox .eventPhoto img {
+      max-width: 100px; }
