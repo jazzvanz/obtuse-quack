@@ -50,7 +50,7 @@ app.formSubmit = function(){
 			app.date = $( '#unixDate' ).val();
 			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
 		}else{
-			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' )
+			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
 		}
 	});
 };
@@ -85,14 +85,12 @@ app.displayResults = function(res) {
 //			check if there is a start time entered for event, otherwise var time is equal to error msg
 			if (res[index].next_event === undefined){
 				var time = 'Sorry, no start time has been entered.';
-			}
-			
-			else{
+			}else{
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-			var time = res[index].next_event.time;
+			time = res[index].next_event.time;
 			}
 
 			
