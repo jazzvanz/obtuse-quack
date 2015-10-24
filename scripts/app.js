@@ -1,8 +1,20 @@
+
+	// TECH MEETUPS
+		// JS/jQuery
+
+// Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
+// Oct. 2015
+// This application uses the Meet Up API
+
 var app = {};
 app.key = '4864244b3d4841378314f6b6d52487d';
 app.zip = '';
 app.radius = 20;
+app.date = '';
 app.results = {};
+
+var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
+
 
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
@@ -20,8 +32,10 @@ app.searchLocale = function() {
 				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
 				// Calling our displayResults function and passing it the results from our ajax request
-				// console.log(app.results);
 				app.displayResults(app.results);
+				$.smoothScroll({
+					scrollTarget: '#dynaContent'
+					});
 	});
 }; 
 
@@ -30,9 +44,19 @@ app.formSubmit = function(){
 	$('#submit').on('click', function(e){
 		e.preventDefault();
 		$('#dynaContent').empty();
-		app.zip = $('#address').val();
-		console.log(app.zip);
-		app.searchLocale();
+		app.zip = $('#address').val().toUpperCase();
+		
+//		test to make sure a valid us or canadian zip/postal was entered
+//		shows the h3 error element to log error msg to user
+		
+		if (is.caPostalCode(app.zip) === true || is.usZipCode(app.zip) === true){
+			app.searchLocale();
+			app.date = $( '#unixDate' ).val();
+			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
+			
+		}else{
+			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
+		}
 	});
 };
 
@@ -48,6 +72,7 @@ app.formSubmit = function(){
 
 //submit button to initiate search
 
+
 //display list of matched results
 app.displayResults = function(res) {
 		$.each(res, function(index, value) {
@@ -55,14 +80,26 @@ app.displayResults = function(res) {
 			// Storing data in variables we can use to output to user
 			var name = res[index].name;
 			var link = res[index].link;
-			// This jquery you see here removes html from the string within res[index].description. We wrapped the value of res[index].description with a div so that the jquery function .text() which expects html in the value will ALWAYS have html to remove. If a value comes from our API but has no HTML in it, it would otherwise give us an error. SO - we hack the jquery function by wrapping the value with html so it will always work and give us back just text like we want.
 			var description = $("<div>" + res[index].description + "</div>").text();
+
+			if (description.length > 300) {
+				// Trim the string to 30 characters
+				description = description.substring(0, 300) + '... ';
+			}
+			
+//			check if there is a start time entered for event, otherwise var time is equal to error msg
+			if (res[index].next_event === undefined){
+				var time = 'Sorry, no start time has been entered.';
+			}else{
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-		//var time = res[index].next_event.time;
+			time = new Date (res[index].next_event.time);
+			time = time.toString();
+			}
 
+			
 			// if photo link is defined do regular thing, otherwise use our backup image
 			// falsey values: 0, undefined, null, NULL, false
 			// truthy values: any other value including true
@@ -70,7 +107,7 @@ app.displayResults = function(res) {
 			if ( res[index].group_photo && res[index].group_photo.photo_link ) {
 				photoLink = res[index].group_photo.photo_link;
 			} else {
-				photoLink = 'images/noPhoto.jpg';
+				photoLink = 'assets/noImageMeetup.png';
 			}
 
 // Creating HTML elements to display to user
@@ -78,8 +115,8 @@ app.displayResults = function(res) {
 			// Make an H2 tag with the name variable inside it
 			name = $('<h2>').text(name);
 
-			// Make a p tag with the concatenated values of city, state, country and timezone
-			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + timezone + ")");
+			// Make a p tag with the concatenated values of city, state, country, time and timezone
+			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + time + " " + timezone + ")");
 
 			// Make an image tag and assign an src and alt attribute to it
 
@@ -96,24 +133,26 @@ app.displayResults = function(res) {
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
-			//  Then place the recipeBox in an element with the id of recipe
+//	only show results from selected date onwards
+			if (time >= app.date){
 			$('#dynaContent').append(eventBox);
-
-			// $.smoothScroll({
-			// 	scrollTarget: '#dynaContent'
-			// });
+			}
 
 		});
 		
 }; 
 
 
-
 // Init app
 app.init = function() {
 	app.formSubmit();
-//	calendar widget for text field
-	$( '#datepicker' ).datepicker();
+//	function of calendar widget for text field
+//	altField is not shown to user, and submits epoch time to the hidden html input #unixDate
+	$( '#datepicker' ).datepicker({
+		altField: '#unixDate',
+		altFormat: '@',
+		dateFormat: 'mm-dd-yy'
+	});
 };
 
 // Run app Run!!
