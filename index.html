@@ -45,7 +45,8 @@
 		<form action="GET">
 			<h4>Enter Your Zip / Postal Code</h4>
 			<input type="text" id="address" placeholder="Location...">
-			<h4>Choose a Date</h4>
+			<h4 class="error invisible"></h4>
+			<h4>Choose a Starting Date</h4>
 			<input type="text" id="datepicker" placeholder="Select a Date...">
 			<input type="hidden" id="unixDate">
 			<button type="submit" name="submit" value="submit" id="submit">Submit</button>
@@ -105,6 +106,7 @@
 <!-- JS-->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'></script>
+<script src="//cdn.jsdelivr.net/is.js/0.52/is.min.js"></script>
 <script src="scripts/app.js"></script>
 
 
