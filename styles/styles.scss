@@ -75,6 +75,22 @@ h3 {
   border-right: 10px solid white;
 }
 
+.leftSide {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 40px;
+  background-image: url("../assets/city.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // height: 800px;
+  height: 100vh;
+  max-height: 800px;
+  width: 75%;
+  color: white;
+  border-right: 10px solid white;
+}
+
 .hero {
 	fill:white;
 	margin:0;
@@ -110,6 +126,7 @@ aside {
 	min-width: 390px;
 	flex-wrap:wrap;
 	align-items: center;
+	justify-content: center;
 	img.icon {
 		width: 100px;
 		margin: 10px;
@@ -118,7 +135,9 @@ aside {
 
 .boxMsg {
 	width: 200px;
-	font-size: 1.3rem;
+	font-size: 1.6rem;
+	font-weight: 100;
+	text-align: center;
 }
 
 .eventBox{
@@ -168,4 +187,21 @@ h2{
 footer {
 	background: $grey;
 	height: 400px;
+	height: 140px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	p{
+		text-align: center;
+		font-size: 1.4rem;
+		font-weight: 100;
+		letter-spacing: 0.3rem;
+		padding: 0 1rem;
+		line-height: 2.5rem;
+	}
+	img{
+		max-height: 20px;
+	}
 }
