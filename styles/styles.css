@@ -189,6 +189,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  max-height: 800px;
   width: 75%;
   color: white;
   border-right: 10px solid white; }

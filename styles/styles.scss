@@ -1,6 +1,6 @@
 
-// TECH MEETUPS
-// Sass
+	// TECH MEETUPS
+		// Sass
 
 // Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
 // Oct. 2015
@@ -8,10 +8,11 @@
 
 @import 'setup';
 
-
+// COLORS - like that 80's gangsta movie
 $grey: #66746A;
 $red: #E81031;
 $blue: #4D8CBF;
+// ------------
 
 html {
 	font-size:62.5%;
@@ -68,6 +69,7 @@ h3 {
   background-size: cover;
   // height: 800px;
   height: 100vh;
+  max-height: 800px;
   width: 75%;
   color: white;
   border-right: 10px solid white;

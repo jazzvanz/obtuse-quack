@@ -1,6 +1,6 @@
 
-// TECH MEETUPS
-// JS/jQuery
+	// TECH MEETUPS
+		// JS/jQuery
 
 // Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
 // Oct. 2015
