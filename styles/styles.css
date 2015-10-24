@@ -306,28 +306,38 @@ aside {
   padding: 3rem 0;
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
-          flex-direction: row;
-  background-color: palegreen; }
+          flex-direction: row; }
   .eventBox .descriptBox {
-    background-color: pink;
     width: 70%; }
     .eventBox .descriptBox p.description {
       margin: 0;
-      padding: 1.5rem;
+      padding: 1.5rem 1.5rem 1.5rem 0;
       font-size: 1.7rem;
       line-weight: 1.5rem; }
     .eventBox .descriptBox p.timeZone {
       margin-top: 20px;
-      padding-left: 40px;
-      color: red; }
+      color: #E81031;
+      font-size: 2rem; }
     .eventBox .descriptBox h2 {
       font-size: 4rem;
       color: black;
       margin: 0;
       font-color: #66746A;
-      line-height: 2rem;
+      line-height: 3.7rem;
       padding-bottom: 20px; }
   .eventBox .eventPhoto {
-    width: 30%; }
+    width: 30%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .eventBox .eventPhoto img {
-      max-width: 100px; }
+      max-width: 200px; }

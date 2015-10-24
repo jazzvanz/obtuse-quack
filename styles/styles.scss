@@ -189,22 +189,23 @@ aside {
 	padding: 3rem 0;
 	flex-direction: row;
 	// align-items: center;
-	background-color:palegreen;
+	// background-color:palegreen;
 	// justify-content: center;
 		.descriptBox {
-			background-color:pink;
+			// background-color:pink;
 			width:70%;
 				p.description{
 					// max-width:60%;
 					margin: 0;
-					padding: 1.5rem;
+					padding: 1.5rem 1.5rem 1.5rem 0;
 					font-size: 1.7rem;
 					line-weight: 1.5rem;
 				}
 				p.timeZone{
 					margin-top:20px;
-					padding-left:40px;
-					color:red;
+					// padding-left:40px;
+					color:$red;
+					font-size:2rem;
 
 				}
 
@@ -213,7 +214,7 @@ aside {
 					color: black;
 					margin: 0;
 					font-color:$grey;
-					line-height:2rem;
+					line-height:3.7rem;
 					padding-bottom:20px;
 				
 				}
@@ -222,10 +223,14 @@ aside {
 
 	.eventPhoto {
 		width:30%;
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: center;
+		align-items: center;
+
 
 		img{
-
-		max-width:100px;
+		max-width:200px;
 		}
 
 	}
