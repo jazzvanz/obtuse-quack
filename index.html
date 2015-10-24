@@ -7,6 +7,7 @@
 <!-- Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke -->
 <!-- Oct. 2015 -->
 <!-- This application uses the Meet Up API -->
+<!--no image icon by Ashwini Sukhdeve from noun project-->
 
 <html lang="en">
 <head>
@@ -36,7 +37,6 @@
 		<h1>Tech Meet Ups</h1>
 		<h3>Find tech meetups.</h3>
 		<h3>Easily.</h3>
-		<h3>In any city.</h3>
 	</div>
 	<!-- /left side -->
 
@@ -45,7 +45,8 @@
 		<form action="GET">
 			<h4>Enter Your Zip / Postal Code</h4>
 			<input type="text" id="address" placeholder="Location...">
-			<h4>Choose a Date</h4>
+			<h4 class="error invisible"></h4>
+			<h4>Choose a Starting Date</h4>
 			<input type="text" id="datepicker" placeholder="Select a Date...">
 			<input type="hidden" id="unixDate">
 			<button type="submit" name="submit" value="submit" id="submit">Submit</button>
@@ -96,7 +97,8 @@
 
 <!-- FOOTER -->
 <footer>
-	
+	<p>code &copy; 2015 Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke</p>
+	<p>powered by the <a href="http://meetup.com"><img src="assets/meetup.png" alt="Meetup Logo"></a> API</p>
 </footer>
 <!-- /footer -->
 
@@ -104,6 +106,7 @@
 <!-- JS-->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'></script>
+<script src="//cdn.jsdelivr.net/is.js/0.52/is.min.js"></script>
 <script src="scripts/app.js"></script>
 
 

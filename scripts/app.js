@@ -15,6 +15,22 @@ app.results = {};
 
 var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
+//converts epoch time to mm-dd-yy
+app.convertEpoch = function(epochTime){
+	
+	var dateVal ="/Date(epochTime)/";
+	var date = new Date( parseFloat( dateVal.substr(6 )));
+return( 
+    (date.getMonth() + 1) + "/" +
+    date.getDate() + "/" +
+    date.getFullYear() + " " +
+    date.getHours() + ":" +
+    date.getMinutes() + ":" +
+    date.getSeconds()
+);
+};
+
+
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
 	$.ajax({
@@ -40,11 +56,18 @@ app.formSubmit = function(){
 	$('#submit').on('click', function(e){
 		e.preventDefault();
 		$('#dynaContent').empty();
-		app.zip = $('#address').val();
-		app.searchLocale();
-		app.date = $( '#unixDate' ).val();
-
-		console.log(app.date);
+		app.zip = $('#address').val().toUpperCase();
+		
+//		test to make sure a valid us or canadian zip/postal was entered
+//		shows the h3 error element to log error msg to user
+		
+		if (is.caPostalCode(app.zip) === true || is.usZipCode(app.zip) === true){
+			app.searchLocale();
+			app.date = $( '#unixDate' ).val();
+			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
+		}else{
+			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
+		}
 	});
 };
 
@@ -60,6 +83,7 @@ app.formSubmit = function(){
 
 //submit button to initiate search
 
+
 //display list of matched results
 app.displayResults = function(res) {
 		$.each(res, function(index, value) {
@@ -73,13 +97,20 @@ app.displayResults = function(res) {
 				// Trim the string to 30 characters
 				description = description.substring(0, 300) + '... ';
 			}
-
+			
+//			check if there is a start time entered for event, otherwise var time is equal to error msg
+			if (res[index].next_event === undefined){
+				var time = 'Sorry, no start time has been entered.';
+			}else{
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-		//var time = res[index].next_event.time;
+			time = app.convertEpoch(res[index].next_event.time);
+				console.log(time);
+			}
 
+			
 			// if photo link is defined do regular thing, otherwise use our backup image
 			// falsey values: 0, undefined, null, NULL, false
 			// truthy values: any other value including true
@@ -87,7 +118,7 @@ app.displayResults = function(res) {
 			if ( res[index].group_photo && res[index].group_photo.photo_link ) {
 				photoLink = res[index].group_photo.photo_link;
 			} else {
-				photoLink = 'images/noPhoto.jpg';
+				photoLink = 'assets/noImageMeetup.png';
 			}
 
 // Creating HTML elements to display to user
@@ -95,8 +126,8 @@ app.displayResults = function(res) {
 			// Make an H2 tag with the name variable inside it
 			name = $('<h2>').text(name);
 
-			// Make a p tag with the concatenated values of city, state, country and timezone
-			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + timezone + ")");
+			// Make a p tag with the concatenated values of city, state, country, time and timezone
+			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + time + " " + timezone + ")");
 
 			// Make an image tag and assign an src and alt attribute to it
 
@@ -113,8 +144,11 @@ app.displayResults = function(res) {
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
-			//  Then place the recipeBox in an element with the id of recipe
+//	only show results from selected date onwards
+			if (time >= app.date){
 			$('#dynaContent').append(eventBox);
+			}
+			
 
 			// $.smoothScroll({
 			// 	scrollTarget: '#dynaContent'
@@ -129,6 +163,7 @@ app.displayResults = function(res) {
 app.init = function() {
 	app.formSubmit();
 //	function of calendar widget for text field
+//	altField is not shown to user, and submits epoch time to the hidden html input #unixDate
 	$( '#datepicker' ).datepicker({
 		altField: '#unixDate',
 		altFormat: '@',

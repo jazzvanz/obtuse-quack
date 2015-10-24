@@ -107,9 +107,9 @@ aside {
 	display:flex;
 	padding: 20px;
 	width: 33.33%;
-	min-width: 390px;
 	flex-wrap:wrap;
 	align-items: center;
+	justify-content: center;
 	img.icon {
 		width: 100px;
 		margin: 10px;
@@ -118,7 +118,9 @@ aside {
 
 .boxMsg {
 	width: 200px;
-	font-size: 1.3rem;
+	font-size: 1.6rem;
+	font-weight: 100;
+	text-align: center;
 }
 
 .eventBox{
@@ -167,5 +169,21 @@ h2{
 
 footer {
 	background: $grey;
-	height: 400px;
+	height: 140px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	p{
+		text-align: center;
+		font-size: 1.4rem;
+		font-weight: 100;
+		letter-spacing: 0.3rem;
+		padding: 0 1rem;
+		line-height: 2.5rem;
+	}
+	img{
+		max-height: 20px;
+	}
 }
