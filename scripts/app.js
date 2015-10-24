@@ -33,6 +33,9 @@ app.searchLocale = function() {
 				app.results = res.data;
 				// Calling our displayResults function and passing it the results from our ajax request
 				app.displayResults(app.results);
+				$.smoothScroll({
+					scrollTarget: '#dynaContent'
+					});
 	});
 }; 
 
@@ -50,6 +53,7 @@ app.formSubmit = function(){
 			app.searchLocale();
 			app.date = $( '#unixDate' ).val();
 			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
+			
 		}else{
 			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
 		}
@@ -93,7 +97,6 @@ app.displayResults = function(res) {
 			var timezone = res[index].timezone;
 			time = new Date (res[index].next_event.time);
 			time = time.toString();
-			console.log(time);
 			}
 
 			
@@ -134,11 +137,6 @@ app.displayResults = function(res) {
 			if (time >= app.date){
 			$('#dynaContent').append(eventBox);
 			}
-			
-
-			// $.smoothScroll({
-			// 	scrollTarget: '#dynaContent'
-			// });
 
 		});
 		
