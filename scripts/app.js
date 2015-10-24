@@ -90,6 +90,8 @@ app.displayResults = function(res) {
 //			check if there is a start time entered for event, otherwise var time is equal to error msg
 			if (res[index].next_event === undefined){
 				var time = 'Sorry, no start time has been entered.';
+			}else if(city === undefined ){
+				
 			}else{
 			var city = res[index].city;
 			var state = res[index].state;
