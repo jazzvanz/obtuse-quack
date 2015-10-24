@@ -86,19 +86,23 @@ app.displayResults = function(res) {
 				// Trim the string to 30 characters
 				description = description.substring(0, 300) + '... ';
 			}
-			
+//			define variables
+			var city = '';
+			var state = '';
+			var country = '';
+			var timezone = '';
+			var time = '';
 //			check if there is a start time entered for event, otherwise var time is equal to error msg
 			if (res[index].next_event === undefined){
-				var time = 'Sorry, no start time has been entered.';
-			}else if(city === undefined ){
-				
+				time = 'Sorry, no start time has been entered.';
 			}else{
-			var city = res[index].city;
-			var state = res[index].state;
-			var country = res[index].country;
-			var timezone = res[index].timezone;
-			time = new Date (res[index].next_event.time);
-			time = time.toString();
+				city = res[index].city;
+				state = res[index].state;
+				country = res[index].country;
+				timezone = res[index].timezone;
+	//	convert epoch time to formatted date
+				time = new Date (res[index].next_event.time);
+				time = time.toString();
 			}
 
 			
@@ -116,9 +120,16 @@ app.displayResults = function(res) {
 
 			// Make an H2 tag with the name variable inside it
 			name = $('<h2>').text(name);
-
+			
+//check if city, state, and country returned values, N/A msg to user if not
+			if(city === ''){
+				city = 'N/A';
+				state = 'N/A';
+				country = 'N/A';
+			};
+			
 			// Make a p tag with the concatenated values of city, state, country, time and timezone
-			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + time + " " + timezone + ")");
+			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + " (" + time + " " + timezone + ")");
 
 			// Make an image tag and assign an src and alt attribute to it
 
@@ -130,8 +141,13 @@ app.displayResults = function(res) {
 			
 			// Add a paragraph tag with the description in it
 			description = $('<p>').addClass('description').text(description);
-			var desBox = $("<div>").addClass("descriptBox").append(name, place, description);
+			
+//			add a read more link at the end of each result which opens same url img tag uses
+			var readMore = $( '<a>' ).attr('href', link).addClass('readMore').text('Read more...');
+			
+			var desBox = $("<div>").addClass("descriptBox").append(name, place, description, readMore);
 
+			
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
