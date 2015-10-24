@@ -15,21 +15,6 @@ app.results = {};
 
 var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
-//converts epoch time to mm-dd-yy
-app.convertEpoch = function(epochTime){
-	
-	var dateVal ="/Date(epochTime)/";
-	var date = new Date( parseFloat( dateVal.substr(6 )));
-return( 
-    (date.getMonth() + 1) + "/" +
-    date.getDate() + "/" +
-    date.getFullYear() + " " +
-    date.getHours() + ":" +
-    date.getMinutes() + ":" +
-    date.getSeconds()
-);
-};
-
 
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
@@ -106,8 +91,9 @@ app.displayResults = function(res) {
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-			time = app.convertEpoch(res[index].next_event.time);
-				console.log(time);
+			time = new Date (res[index].next_event.time);
+			time = time.toString();
+			console.log(time);
 			}
 
 			
