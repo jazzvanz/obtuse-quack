@@ -229,20 +229,24 @@ aside {
   display: flex;
   padding: 20px;
   width: 33.33%;
-  min-width: 390px;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
   .case img.icon {
     width: 100px;
     margin: 10px; }
 
 .boxMsg {
   width: 200px;
-  font-size: 1.3rem; }
+  font-size: 1.6rem;
+  font-weight: 100;
+  text-align: center; }
 
 .eventBox {
   display: -webkit-flex;
@@ -289,4 +293,28 @@ h2 {
 
 footer {
   background: #66746A;
-  height: 400px; }
+  height: 140px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  footer p {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 100;
+    letter-spacing: 0.3rem;
+    padding: 0 1rem;
+    line-height: 2.5rem; }
+  footer img {
+    max-height: 20px; }

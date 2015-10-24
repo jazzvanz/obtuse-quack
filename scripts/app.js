@@ -43,8 +43,6 @@ app.formSubmit = function(){
 		app.zip = $('#address').val();
 		app.searchLocale();
 		app.date = $( '#unixDate' ).val();
-
-		console.log(app.date);
 	});
 };
 
@@ -73,13 +71,19 @@ app.displayResults = function(res) {
 				// Trim the string to 30 characters
 				description = description.substring(0, 300) + '... ';
 			}
-
+			
+//			check if there is a start time entered for event, otherwise var time is equal to error msg
+			if (res[index].next_event === undefined){
+				var time = 'Sorry, no start time has been entered.';
+			}else{
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-		//var time = res[index].next_event.time;
+			var time = res[index].next_event.time;
+			}
 
+			
 			// if photo link is defined do regular thing, otherwise use our backup image
 			// falsey values: 0, undefined, null, NULL, false
 			// truthy values: any other value including true
@@ -87,7 +91,7 @@ app.displayResults = function(res) {
 			if ( res[index].group_photo && res[index].group_photo.photo_link ) {
 				photoLink = res[index].group_photo.photo_link;
 			} else {
-				photoLink = 'images/noPhoto.jpg';
+				photoLink = 'assets/noImageMeetup.png';
 			}
 
 // Creating HTML elements to display to user
@@ -95,8 +99,8 @@ app.displayResults = function(res) {
 			// Make an H2 tag with the name variable inside it
 			name = $('<h2>').text(name);
 
-			// Make a p tag with the concatenated values of city, state, country and timezone
-			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + timezone + ")");
+			// Make a p tag with the concatenated values of city, state, country, time and timezone
+			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + ", (" + time + " " + timezone + ")");
 
 			// Make an image tag and assign an src and alt attribute to it
 
