@@ -129,53 +129,10 @@ aside {
 	padding: 40px;
 	margin: 20px auto;
 	flex-direction: row;
-
-
-		.descriptBox {
-			width:70%;
-				p.description{
-					// max-width:60%;
-					margin: 0;
-					padding: 1.5rem 1.5rem 1.5rem 0;
-					font-size: 1.7rem;
-					line-weight: 1.5rem;
-				}
-				p.timeZone{
-					margin-top:20px;
-					// padding-left:40px;
-					color:$red;
-					font-size:2rem;
-
-				}
-
-				h2{
-					font-size:4rem;
-					color: black;
-					margin: 0;
-					font-color:$grey;
-					line-height:3.7rem;
-					padding-bottom:20px;
-				
-				}
-		
-		}
-
-	.eventPhoto {
-		width:30%;
-		display:flex;
-		flex-wrap:wrap;
-		justify-content: center;
-		align-items: center;
-
-
-		img{
-		max-width:200px;
-		border-radius: 10px;
-		border: 1px solid lightgray;
-		align-items: center;
-		justify-content: center;
-		}
-
+	border-radius: 10px;
+	border: 1px solid lightgray;
+	align-items: center;
+	justify-content: center;
 }
 
 .descriptBox {

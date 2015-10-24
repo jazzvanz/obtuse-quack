@@ -309,44 +309,6 @@ footer {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding: 3rem 0;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
-  .eventBox .descriptBox {
-    width: 70%; }
-    .eventBox .descriptBox p.description {
-      margin: 0;
-      padding: 1.5rem 1.5rem 1.5rem 0;
-      font-size: 1.7rem;
-      line-weight: 1.5rem; }
-    .eventBox .descriptBox p.timeZone {
-      margin-top: 20px;
-      color: #E81031;
-      font-size: 2rem; }
-    .eventBox .descriptBox h2 {
-      font-size: 4rem;
-      color: black;
-      margin: 0;
-      font-color: #66746A;
-      line-height: 3.7rem;
-      padding-bottom: 20px; }
-  .eventBox .eventPhoto {
-    width: 30%;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    .eventBox .eventPhoto img {
-      max-width: 200px; 
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -365,4 +327,3 @@ footer {
     line-height: 2.5rem; }
   footer img {
     max-height: 20px; }
->>>>>>> 79efc9eacf3191530c59145f02a4099b81f4b740
