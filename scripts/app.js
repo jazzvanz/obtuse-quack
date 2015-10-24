@@ -15,6 +15,22 @@ app.results = {};
 
 var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
+//converts epoch time to mm-dd-yy
+app.convertEpoch = function(epochTime){
+	
+	var dateVal ="/Date(epochTime)/";
+	var date = new Date( parseFloat( dateVal.substr(6 )));
+return( 
+    (date.getMonth() + 1) + "/" +
+    date.getDate() + "/" +
+    date.getFullYear() + " " +
+    date.getHours() + ":" +
+    date.getMinutes() + ":" +
+    date.getSeconds()
+);
+};
+
+
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
 	$.ajax({
@@ -28,7 +44,7 @@ app.searchLocale = function() {
 			radius: app.radius
 			}
 		}).then(function(res) {
-				//Using .data to go a level deeper into res then storing as results method in app
+				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
 				// Calling our displayResults function and passing it the results from our ajax request
 				app.displayResults(app.results);
@@ -40,9 +56,18 @@ app.formSubmit = function(){
 	$('#submit').on('click', function(e){
 		e.preventDefault();
 		$('#dynaContent').empty();
-		app.zip = $('#address').val();
-		app.searchLocale();
-		app.date = $( '#unixDate' ).val();
+		app.zip = $('#address').val().toUpperCase();
+		
+//		test to make sure a valid us or canadian zip/postal was entered
+//		shows the h3 error element to log error msg to user
+		
+		if (is.caPostalCode(app.zip) === true || is.usZipCode(app.zip) === true){
+			app.searchLocale();
+			app.date = $( '#unixDate' ).val();
+			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
+		}else{
+			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
+		}
 	});
 };
 
@@ -58,42 +83,45 @@ app.formSubmit = function(){
 
 //submit button to initiate search
 
+
 //display list of matched results
 app.displayResults = function(res) {
-		
 		$.each(res, function(index, value) {
+
 			// Storing data in variables we can use to output to user
 			var name = res[index].name;
 			var link = res[index].link;
 			var description = $("<div>" + res[index].description + "</div>").text();
-			// Trimming string length if longer than 600 chars
-			if (description.length > 600) {
+
+			if (description.length > 300) {
 				// Trim the string to 30 characters
-				description = description.substring(0, 600) + '... ';
+				description = description.substring(0, 300) + '... ';
 			}
+			
+//			check if there is a start time entered for event, otherwise var time is equal to error msg
+			if (res[index].next_event === undefined){
+				var time = 'Sorry, no start time has been entered.';
+			}else{
 			var city = res[index].city;
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-			var time = res[index].next_event;
-			//check if there is a start time entered for event, otherwise var time is equal to error msg
-			if (res[index].next_event === undefined) {
-				time = 'Sorry, no start time has been entered.';
-			} else {
-				time = res[index].next_event.time;
+			time = app.convertEpoch(res[index].next_event.time);
+				console.log(time);
 			}
+
+			
 			// if photo link is defined do regular thing, otherwise use our backup image
 			// falsey values: 0, undefined, null, NULL, false
 			// truthy values: any other value including true
 			var photoLink = '';
-
-			if (res[index].group_photo && res[index].group_photo.photo_link) {
+			if ( res[index].group_photo && res[index].group_photo.photo_link ) {
 				photoLink = res[index].group_photo.photo_link;
 			} else {
 				photoLink = 'assets/noImageMeetup.png';
 			}
 
-			// Creating HTML elements to display to user
+// Creating HTML elements to display to user
 
 			// Make an H2 tag with the name variable inside it
 			name = $('<h2>').text(name);
@@ -116,8 +144,11 @@ app.displayResults = function(res) {
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
-			//  Then place the recipeBox in an element with the id of recipe
+//	only show results from selected date onwards
+			if (time >= app.date){
 			$('#dynaContent').append(eventBox);
+			}
+			
 
 			// $.smoothScroll({
 			// 	scrollTarget: '#dynaContent'

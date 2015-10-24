@@ -75,22 +75,6 @@ h3 {
   border-right: 10px solid white;
 }
 
-.leftSide {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 40px;
-  background-image: url("../assets/city.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  // height: 800px;
-  height: 100vh;
-  max-height: 800px;
-  width: 75%;
-  color: white;
-  border-right: 10px solid white;
-}
-
 .hero {
 	fill:white;
 	margin:0;
@@ -123,7 +107,6 @@ aside {
 	display:flex;
 	padding: 20px;
 	width: 33.33%;
-	min-width: 390px;
 	flex-wrap:wrap;
 	align-items: center;
 	justify-content: center;
@@ -186,7 +169,6 @@ h2{
 
 footer {
 	background: $grey;
-	height: 400px;
 	height: 140px;
 	display: flex;
 	flex-wrap: wrap;

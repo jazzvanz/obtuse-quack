@@ -194,26 +194,6 @@ h3 {
   color: white;
   border-right: 10px solid white; }
 
-.leftSide {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 40px;
-  background-image: url("../assets/city.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  max-height: 800px;
-  width: 75%;
-  color: white;
-  border-right: 10px solid white; }
-
 .hero {
   fill: white;
   margin: 0;
@@ -249,7 +229,6 @@ aside {
   display: flex;
   padding: 20px;
   width: 33.33%;
-  min-width: 390px;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
@@ -314,7 +293,6 @@ h2 {
 
 footer {
   background: #66746A;
-  height: 400px;
   height: 140px;
   display: -webkit-flex;
   display: -ms-flexbox;
