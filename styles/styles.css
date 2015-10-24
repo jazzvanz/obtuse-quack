@@ -162,7 +162,8 @@ h1 {
   font-size: 11rem;
   margin: 0 0 20px;
   letter-spacing: .3rem;
-  font-weight: 700; }
+  font-weight: 700;
+  text-shadow: 2px 2px 2px black; }
 
 h3 {
   color: white;
@@ -172,7 +173,13 @@ h3 {
   color: white;
   text-align: left;
   letter-spacing: .2rem;
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 2px black; }
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: 100;
+  text-align: left; }
 
 .leftSide {
   display: -webkit-flex;
@@ -202,7 +209,70 @@ h3 {
 aside {
   background-color: #4D8CBF;
   width: 25%;
-  padding: 20px; }
+  padding: 20px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  aside > * {
+    width: 100%; }
+
+.error {
+  color: #4D8CBF;
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.4rem;
+  border: solid 3px #E81031;
+  background: white;
+  padding: 0.5rem; }
+
+.visible {
+  display: block; }
+
+.invisible {
+  display: none; }
+
+form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  height: 400px; }
+
+input {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  margin: 0; }
+
+button {
+  padding: 0.5rem;
+  background: #E81031;
+  border: 2px solid white;
+  color: white;
+  font-size: 1.6rem;
+  margin: 0; }
 
 .threeBoxes {
   background: #E81031;
@@ -293,7 +363,7 @@ h2 {
 
 footer {
   background: #66746A;
-  height: 140px;
+  height: 80px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -315,6 +385,7 @@ footer {
     font-weight: 100;
     letter-spacing: 0.3rem;
     padding: 0 1rem;
-    line-height: 2.5rem; }
+    line-height: 2.5rem;
+    margin: 0; }
   footer img {
     max-height: 20px; }
