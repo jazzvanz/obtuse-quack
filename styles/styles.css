@@ -261,7 +261,13 @@ aside {
       -ms-flex-direction: row;
           flex-direction: row;
   border-radius: 10px;
-  border: 1px solid lightgray; }
+  border: 1px solid lightgray;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .descriptBox {
   width: 70%; }
@@ -275,7 +281,9 @@ p.description {
 p.timeZone {
   margin-top: 20px;
   padding-left: 40px;
-  color: red; }
+  color: red;
+  font-size: 1.4rem;
+  text-align: center; }
 
 h2 {
   font-size: 4rem;
@@ -283,7 +291,8 @@ h2 {
   margin: 0;
   font-color: #66746A;
   line-height: 4rem;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  text-align: center; }
 
 .eventPhoto {
   width: calc(30% - 20px);
