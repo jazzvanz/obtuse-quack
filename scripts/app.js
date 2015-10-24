@@ -15,6 +15,22 @@ app.results = {};
 
 var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
+//converts epoch time to mm-dd-yy
+app.convertEpoch = function(epochTime){
+	
+	var dateVal ="/Date(epochTime)/";
+	var date = new Date( parseFloat( dateVal.substr(6 )));
+return( 
+    (date.getMonth() + 1) + "/" +
+    date.getDate() + "/" +
+    date.getFullYear() + " " +
+    date.getHours() + ":" +
+    date.getMinutes() + ":" +
+    date.getSeconds()
+);
+};
+
+
 //ajax search call, create global call app.results to store all results
 app.searchLocale = function() {
 	$.ajax({
@@ -90,7 +106,8 @@ app.displayResults = function(res) {
 			var state = res[index].state;
 			var country = res[index].country;
 			var timezone = res[index].timezone;
-			time = res[index].next_event.time;
+			time = app.convertEpoch(res[index].next_event.time);
+				console.log(time);
 			}
 
 			
@@ -127,7 +144,7 @@ app.displayResults = function(res) {
 			// Make a div with a class of eventBox and append(insert) within it the variables we just made to make a div with an H2, img, and two p tags inside it with all the info we want our user to see.
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
-			//  Then place the recipeBox in an element with the id of recipe
+//	only show results from selected date onwards
 			if (time >= app.date){
 			$('#dynaContent').append(eventBox);
 			}
