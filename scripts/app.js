@@ -117,6 +117,7 @@ app.displayResults = function(res) {
 app.init = function() {
 	app.formSubmit();
 //	function of calendar widget for text field
+//	altField is not shown to user, and submits epoch time to the hidden html input #unixDate
 	$( '#datepicker' ).datepicker({
 		altField: '#unixDate',
 		altFormat: '@',
