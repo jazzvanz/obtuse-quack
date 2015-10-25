@@ -100,7 +100,8 @@ app.displayResults = function(res) {
 				state = res[index].state;
 				country = res[index].country;
 				timezone = res[index].timezone;
-	//	convert epoch time to formatted date
+	//	convert epoch time to formatted date, keeping epoch in a separate variable
+				timeEpoch = res[index].next_event.time;
 				time = new Date (res[index].next_event.time);
 				time = time.toString();
 			}
@@ -152,8 +153,10 @@ app.displayResults = function(res) {
 			var eventBox = $('<div>').addClass('eventBox wrapper').append(desBox, photoDiv);
 
 //	only show results from selected date onwards
-			if (time >= app.date){
-			$('#dynaContent').append(eventBox);
+			if (timeEpoch >= app.date){
+				$('#dynaContent').append(eventBox);
+			}else{
+				return;
 			}
 
 		});
