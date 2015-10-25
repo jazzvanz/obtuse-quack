@@ -214,7 +214,7 @@ aside {
   background-color: #66746A;
   width: 25%;
   padding: 10px;
-  box-shadow: inset -9px -6px 62px 0px rgba(0, 0, 0, 0.75); }
+  box-shadow: inset -19px 0px 61px -8px rgba(0, 0, 0, 0.49); }
 
 form.form {
   margin-top: 25%;
@@ -246,7 +246,7 @@ form.form {
   background: #E81031;
   width: 100%;
   color: white;
-  box-shadow: inset -9px -6px 62px 0px rgba(0, 0, 0, 0.75); }
+  box-shadow: inset -19px 0px 61px -8px rgba(0, 0, 0, 0.49); }
 
 .threeBoxWrap {
   display: -webkit-flex;
@@ -365,7 +365,7 @@ h2 {
     max-width: 225px; }
 
 footer {
-  background: #66746A;
+  background: #4D8CBF;
   height: 140px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -373,21 +373,39 @@ footer {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+  box-shadow: inset -20px -12px 61px -8px rgba(0, 0, 0, 0.49); }
+  footer .icons {
+    margin-left: 40px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 100%;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  footer div.icons i {
+    color: #E81031;
+    font-size: 6rem;
+    padding: 20px; }
+  footer div.credits {
+    padding-top: 25px;
+    width: 400px;
+    line-height: 2.2rem; }
   footer p {
-    text-align: center;
     font-size: 1.4rem;
-    font-weight: 100;
-    letter-spacing: 0.3rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
     padding: 0 1rem;
-    line-height: 2.5rem; }
+    color: white;
+    text-align: left; }
+  footer .leftCredit {
+    text-transform: uppercase;
+    padding-top: 60px; }
   footer img {
     max-height: 20px; }
