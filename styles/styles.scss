@@ -80,7 +80,7 @@ h3 {
   		padding-top:10%;
   	}
   	h3 {
-  		width:20%;
+  		width:25%;
   		text-align: center;
   		padding-top:20px;
   		line-height:3.5rem;
@@ -99,7 +99,7 @@ h3 {
 aside {
 	background-color: $grey;
 	width:25%;
-	padding: 15px;
+	padding: 10px;
 	-webkit-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 	box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
@@ -111,7 +111,7 @@ form.form {
 	
 		h4 {
 			font-weight: 300;
-			font-size: 2rem;
+			font-size: 1.5rem;
 			letter-spacing: .1rem;
 			line-height: 2.5rem;
 			margin-bottom:15px;
@@ -139,13 +139,15 @@ form.form {
 
 	}
 
-	//go back and customize calender. 
+//go back and customize calender. 
 // CLOSE HEADER STYLES
+//needs bottom margin:80px. but only when dyno content is being shown.
 
 .threeBoxes {
 	background: $red;
 	width: 100%;
 	color: white;
+	// margin-bottom:80px;
 	-webkit-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 	box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
@@ -156,7 +158,7 @@ form.form {
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	max-width: 1400px;
+	max-width: 1300px;
 	height:300px;
 }
 
@@ -187,64 +189,89 @@ form.form {
 	line-height: 2rem;
 }
 
-.eventBox{
+//Dyno content starts//
+
+.eventBox {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 40px;
-	margin: 20px auto;
+	margin: 40px auto;
 	flex-direction: row;
 	border-radius: 10px;
 	border: 1px solid lightgray;
-	align-items: center;
-	justify-content: center;
+	// align-items: center;
+	// justify-content: center;
 }
+
+div.eventBox div:nth-child(even){
+			flex-direction: row-reverse;
+		}
+
 
 .descriptBox {
 	width:70%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
+	// background-color:pink;
+	// display: flex;
+	// flex-wrap: wrap;
+	// justify-content: space-around;
+	// align-items: center;
 }
 
 p.description{
+	// background-color:pink;
 	margin: 0;
-	padding: 1.5rem;
+	// padding: 1.5rem;
 	font-size: 1.7rem;
-	line-weight: 1.5rem;
+	line-height:2.5rem;
+	padding:30px 0;
+
 }
 
 p.timeZone{
-	margin-top:20px;
+	// margin-top:10px;
 	color:red;
 	font-size: 1.4rem;
-	text-align: center;
+	// font-weight:600;
+	// text-align: center;
 }
 
 a.readMore{
-	text-align: center;
+	text-align: right;
 	text-decoration: none;
 	color: $red;
 	font-size: 1.4rem;
-	font-weight: 400;
+	font-weight: 600;
+	letter-spacing: .1rem;
+	margin-top:20px;
+	display:block;
 }
 
-h2{
+h2 {
+	padding-top:20px;
+	padding-bottom:20px;
 	font-size:4rem;
 	color: black;
 	margin: 0;
 	font-color: $grey;
 	line-height:4rem;
-	padding-bottom:20px;
-	text-align: center;
+	// padding-bottom:20px;
+	font-weight: 300;
+	// text-align: center;
 }
 
 .eventPhoto {
-	width: calc(30% - 20px);
+	width: calc(20% - 20px);
 	margin: 10px;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	margin-left:80px;
+	justify-content: center;
 	img {
-		width: 100%;
+		// width: 100%;
+		max-width:225px;
 	}
+
 }
 
 //Footer 
