@@ -192,22 +192,61 @@ h3 {
   max-height: 800px;
   width: 75%;
   color: white;
-  border-right: 10px solid white; }
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .leftSide h1 {
+    padding-top: 10%; }
+  .leftSide h3 {
+    width: 20%;
+    text-align: center;
+    padding-top: 20px;
+    line-height: 3.5rem; }
+    .leftSide h3 span {
+      font-weight: 600; }
 
 .hero {
   fill: white;
   margin: 0;
-  width: 270px; }
+  width: 300px; }
 
 aside {
-  background-color: #4D8CBF;
+  background-color: #66746A;
   width: 25%;
-  padding: 20px; }
+  padding: 15px;
+  box-shadow: inset -9px -6px 62px 0px rgba(0, 0, 0, 0.75); }
+
+form.form {
+  margin-top: 25%;
+  padding: 40px; }
+  form.form h4 {
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    line-height: 2.5rem;
+    margin-bottom: 15px; }
+  form.form #submit {
+    background-color: #E81031;
+    color: white;
+    width: 40%;
+    padding: 10px;
+    display: block;
+    margin: 40px 30%;
+    border-radius: 5px;
+    border-color: #E81031;
+    text-transform: uppercase;
+    letter-spacing: .1rem; }
+  form.form .inputBox {
+    background-color: whitesmoke;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 20px; }
 
 .threeBoxes {
   background: #E81031;
   width: 100%;
-  color: white; }
+  color: white;
+  box-shadow: inset -9px -6px 62px 0px rgba(0, 0, 0, 0.75); }
 
 .threeBoxWrap {
   display: -webkit-flex;
@@ -220,14 +259,14 @@ aside {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 300px; }
 
 .case {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
+  padding: 10px;
   width: 33.33%;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
@@ -239,14 +278,19 @@ aside {
       -ms-flex-pack: center;
           justify-content: center; }
   .case img.icon {
-    width: 100px;
+    width: 160px;
+    margin: 10px; }
+  .case img.special {
+    width: 190px;
     margin: 10px; }
 
 .boxMsg {
+  padding-left: 20px;
   width: 200px;
   font-size: 1.6rem;
-  font-weight: 100;
-  text-align: center; }
+  font-weight: 300;
+  text-align: left;
+  line-height: 2rem; }
 
 .eventBox {
   display: -webkit-flex;

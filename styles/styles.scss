@@ -5,6 +5,8 @@
 // Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
 // Oct. 2015
 // This application uses the Meet Up API
+// Icons are from noun project. 
+
 
 @import 'setup';
 
@@ -72,26 +74,81 @@ h3 {
   max-height: 800px;
   width: 75%;
   color: white;
-  border-right: 10px solid white;
+  align-items:center;
+  // border-right: 10px solid white;
+  	h1{
+  		padding-top:10%;
+  	}
+  	h3 {
+  		width:20%;
+  		text-align: center;
+  		padding-top:20px;
+  		line-height:3.5rem;
+  		span {
+  			font-weight: 600;
+  		}
+  	}
 }
 
 .hero {
 	fill:white;
 	margin:0;
-	width: 270px;
+	width: 300px;
 }
 
 aside {
-	background-color: $blue;
+	background-color: $grey;
 	width:25%;
-	padding: 20px;
+	padding: 15px;
+	-webkit-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
+	box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 }
+
+form.form {
+	margin-top:25%;
+	padding:40px;
+	
+		h4 {
+			font-weight: 300;
+			font-size: 2rem;
+			letter-spacing: .1rem;
+			line-height: 2.5rem;
+			margin-bottom:15px;
+		}
+
+		#submit {
+			background-color:$red;
+			color:white;
+			width:40%;
+			padding:10px;
+			display:block;
+			margin:40px 30%;
+			border-radius: 5px;
+			border-color: $red;
+			text-transform: uppercase;
+			letter-spacing: .1rem;
+		}
+
+		.inputBox {
+			background-color:whitesmoke;
+			padding:10px;
+			width:70%;
+			margin-bottom:20px;
+		}
+
+	}
+
+	//go back and customize calender. 
 // CLOSE HEADER STYLES
 
 .threeBoxes {
 	background: $red;
 	width: 100%;
 	color: white;
+	-webkit-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
+	box-shadow: inset -9px -6px 62px 0px rgba(0,0,0,0.75);
 }
 
 .threeBoxWrap	{
@@ -99,28 +156,35 @@ aside {
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 1400px;
 	height:300px;
 }
 
 .case {
 	display:flex;
-	padding: 20px;
+	padding: 10px;
 	width: 33.33%;
 	flex-wrap:wrap;
 	align-items: center;
 	justify-content: center;
-	img.icon {
-		width: 100px;
+
+		img.icon {
+		width: 160px;
 		margin: 10px;
+	}
+		img.special {
+		width:190px;
+		margin:10px;
 	}
 }
 
 .boxMsg {
+	padding-left:20px;
 	width: 200px;
 	font-size: 1.6rem;
-	font-weight: 100;
-	text-align: center;
+	font-weight: 300;
+	text-align: left;
+	line-height: 2rem;
 }
 
 .eventBox{
