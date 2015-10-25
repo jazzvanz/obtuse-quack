@@ -261,7 +261,7 @@ aside {
       -ms-flex-direction: row;
           flex-direction: row;
   border-radius: 10px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;

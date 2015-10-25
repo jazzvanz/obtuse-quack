@@ -9,7 +9,7 @@
 var app = {};
 app.key = '4864244b3d4841378314f6b6d52487d';
 app.zip = '';
-app.radius = 20;
+app.radius = 25;
 app.date = '';
 app.results = {};
 
@@ -158,10 +158,8 @@ app.displayResults = function(res) {
 			}else{
 				return;
 			}
-
 		});
-		
-}; 
+};
 
 
 // Init app
