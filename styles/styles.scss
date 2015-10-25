@@ -5,6 +5,8 @@
 // Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
 // Oct. 2015
 // This application uses the Meet Up API
+// Icons are from noun project.
+
 
 @import 'setup';
 
@@ -16,6 +18,7 @@ $blue: #4D8CBF;
 
 html {
 	font-size:62.5%;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .body {
@@ -29,6 +32,7 @@ html {
 	display: flex;
 	flex-wrap: wrap;
 }
+
 
 header {
 	width: 100%;
@@ -46,6 +50,7 @@ h1 {
 	margin: 0 0 20px;
 	letter-spacing: .3rem;
 	font-weight: 700;
+	text-align: center;
 }
 
 h3 {
@@ -59,39 +64,121 @@ h3 {
 	margin: 0 0 10px;
 }
 
+h4.error{
+	color: $red;
+	font-weight: 800;
+	background: white;
+	padding: 10px;
+	text-align: center;
+}
+
+.visible{
+	display: block;
+}
+
+.invisible{
+	display: none;
+}
+
+.developers a{
+	text-decoration: none;
+	color: white;
+	transition: color 0.8s;
+	&:hover, &:focus{
+		color: $red;	
+	}
+}
+
 .leftSide {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   background-image: url("../assets/city.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 800px;
-  height: 100vh;
   max-height: 800px;
   width: 75%;
   color: white;
-  border-right: 10px solid white;
+  align-items:center;
+	justify-content: center;
+  // border-right: 10px solid white;
+  	h1{
+  		padding-top:10%;
+  	}
+  	h3 {
+  		width:25%;
+  		text-align: center;
+  		padding-top:20px;
+  		line-height:3.5rem;
+  		span {
+  			font-weight: 600;
+  		}
+  	}
 }
 
 .hero {
 	fill:white;
 	margin:0;
-	width: 270px;
+	width: 300px;
 }
 
 aside {
-	background-color: $blue;
+	background-color: $grey;
 	width:25%;
-	padding: 20px;
+	padding: 10px;
+	-webkit-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
+	-moz-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
+	box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
 }
+
+form.form {
+	margin-top:25%;
+	padding:20px;
+	
+		h4 {
+			font-weight: 300;
+			font-size: 1.5rem;
+			letter-spacing: .1rem;
+			line-height: 2.5rem;
+			margin-bottom:15px;
+		}
+
+		#submit {
+			background-color:$red;
+			color:white;
+			width:100%;
+			padding:10px;
+//			display:block;
+			margin-top: 20px;
+			border-radius: 5px;
+			border-color: $red;
+			text-transform: uppercase;
+			letter-spacing: .1rem;
+			font-size: 1.4rem;
+		}
+
+		.inputBox {
+			background-color:whitesmoke;
+			padding:10px;
+			width:100%;
+			margin-bottom:20px;
+		}
+
+	}
+
+//go back and customize calender. 
 // CLOSE HEADER STYLES
+//needs bottom margin:80px. but only when dyno content is being shown.
 
 .threeBoxes {
 	background: $red;
 	width: 100%;
 	color: white;
+	// margin-bottom:80px;
+	-webkit-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
+	-moz-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
+	box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
 }
 
 .threeBoxWrap	{
@@ -99,35 +186,46 @@ aside {
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 1300px;
 	height:300px;
 }
 
 .case {
 	display:flex;
-	padding: 20px;
+	padding: 10px;
 	width: 33.33%;
 	flex-wrap:wrap;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	img.icon {
-		width: 100px;
-		margin: 10px;
+
+		img.icon {
+		width: 160px;
+//			display: block;
+//		margin: 10px;
+	}
+		img.special {
+		width:190px;
+//		margin:10px;
 	}
 }
 
 .boxMsg {
+	padding-left:20px;
 	width: 200px;
 	font-size: 1.6rem;
-	font-weight: 100;
-	text-align: center;
+	font-weight: 300;
+	text-align: left;
+	line-height: 2rem;
 }
 
-.eventBox{
+//Dyno content starts//
+
+.eventBox {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 40px;
-	margin: 20px auto;
+	margin: 40px auto;
 	flex-direction: row;
 	border-radius: 10px;
 	border: 2px solid lightgray;
@@ -135,72 +233,122 @@ aside {
 	justify-content: center;
 }
 
+div.eventBox div:nth-child(even){
+	flex-direction: row-reverse;
+}
+
+
 .descriptBox {
 	width:70%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
 }
 
 p.description{
+	// background-color:pink;
 	margin: 0;
-	padding: 1.5rem;
+	// padding: 1.5rem;
 	font-size: 1.7rem;
-	line-weight: 1.5rem;
+	line-height:2.5rem;
+	padding:30px 0;
+
 }
 
 p.timeZone{
-	margin-top:20px;
+	// margin-top:10px;
 	color:red;
 	font-size: 1.4rem;
-	text-align: center;
+	// font-weight:600;
+	// text-align: center;
 }
 
 a.readMore{
-	text-align: center;
+	text-align: right;
 	text-decoration: none;
 	color: $red;
 	font-size: 1.4rem;
-	font-weight: 400;
+	font-weight: 600;
+	letter-spacing: .1rem;
+	margin-top:20px;
+	display:block;
 }
 
-h2{
+h2 {
+	padding-top:20px;
+	padding-bottom:20px;
 	font-size:4rem;
 	color: black;
 	margin: 0;
 	font-color: $grey;
 	line-height:4rem;
-	padding-bottom:20px;
-	text-align: center;
+	// padding-bottom:20px;
+	font-weight: 300;
+	// text-align: center;
 }
 
 .eventPhoto {
-	width: calc(30% - 20px);
+	width: calc(20% - 20px);
 	margin: 10px;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	margin-left:80px;
+	justify-content: center;
 	img {
-		width: 100%;
+		max-width:225px;
 	}
+
 }
 
 //Footer 
 
 footer {
-	background: $grey;
-	height: 140px;
+	background: $blue;
+	height: 180px;
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
+	-webkit-box-shadow: inset -20px -12px 61px -8px rgba(0,0,0,0.49);
+	-moz-box-shadow: inset -20px -12px 61px -8px rgba(0,0,0,0.49);
+	box-shadow: inset -20px -12px 61px -8px rgba(0,0,0,0.49);
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	p{
-		text-align: center;
-		font-size: 1.4rem;
-		font-weight: 100;
-		letter-spacing: 0.3rem;
-		padding: 0 1rem;
-		line-height: 2.5rem;
+
+	.icons {
+		display:flex;
+		flex-wrap:wrap;
+		flex-direction: row;
+//		height: 100%;
+		align-items:center;
 	}
+
+	div.icons i {
+		// fill: $grey;
+		color:$red;
+		font-size:3rem;
+		padding:20px 60px;
+		margin: 0;
+		}
+
+	div.credits {
+		line-height: 2.2rem;
+	}
+
+	p {
+		// display:block;
+		
+		font-size: 1.4rem;
+		font-weight: 300;
+		letter-spacing: 0.1rem;
+		padding: 0 1rem;
+		color: white;
+		text-align: left;
+	}
+
+
+	.leftCredit {
+		text-transform: uppercase;
+
+	}
+
 	img{
 		max-height: 20px;
 	}

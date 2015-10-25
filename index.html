@@ -15,6 +15,9 @@
 
 	<title>Tech Meet Ups</title>
 
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
@@ -33,23 +36,22 @@
 
 	<!-- LEFT SIDE OF HEADER -->
 	<div class="leftSide">
-		<img class="hero" src="assets/handshake.svg" alt="Tech Meetups Logo of two hands shaking">
 		<h1>Tech Meet Ups</h1>
-		<h3>Find tech meetups.</h3>
-		<h3>Easily.</h3>
+		<h3>Find tech meetups, <span>Easily.</span></h3>
+		<img class="hero" src="assets/handshake.svg" alt="Tech Meetups Logo of two hands shaking">
 	</div>
 	<!-- /left side -->
 
 	<!-- RIGHT SIDE OF HEADER -->
 	<aside>
-		<form action="GET">
+		<form class="form" action="GET">
 			<h4>Enter Your Zip / Postal Code</h4>
-			<input type="text" id="address" placeholder="Location...">
+			<input class="inputBox" type="text" id="address" placeholder="Location...">
 			<h4 class="error invisible"></h4>
 			<h4>Choose a Starting Date</h4>
-			<input type="text" id="datepicker" placeholder="Select a Date...">
+			<input class="inputBox" type="text" id="datepicker" placeholder="Select a Date...">
 			<input type="hidden" id="unixDate">
-			<button type="submit" name="submit" value="submit" id="submit">Submit</button>
+			<button type="submit" name="submit" value="submit" id="submit">Let's Meet!</button>
 			<!-- CALENDAR -->
 			<div class="calendar">
 			</div>
@@ -68,19 +70,19 @@
 
 		<!-- box1 -->
 		<div class="case">
-			<img class="icon" src="assets/icon1.svg" alt="">
+			<img class="special" src="assets/icon1.svg" alt="an icon with a computer window screen and angle brackets inside, refering to writing code.">
 			<p class="boxMsg">Wide variety of groups all centered around the tech industry!</p>
 		</div>
 
 		<!-- box2 -->
 		<div class="case">
-			<img class="icon" src="assets/noun_86666_cc.svg" alt="">
+			<img class="icon" src="assets/noun_86666_cc.svg" alt="the outline of a mirco chip and its connections, refering to working with an arduino.">
 			<p class="boxMsg">Wide variety of groups all centered around the tech industry!</p>
 		</div>
 
 		<!-- box3 -->
 		<div class="case">
-			<img class="icon" src="assets/noun_103844_cc.svg" alt="">
+			<img class="icon" src="assets/noun_103956_cc.svg" alt="a computer window screen with curly braces around an icon for atom connection, referring to computer sceince.">
 			<p class="boxMsg">Wide variety of groups all centered around the tech industry!</p>
 		</div>
 
@@ -97,8 +99,19 @@
 
 <!-- FOOTER -->
 <footer>
-	<p>code &copy; 2015 Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke</p>
-	<p>powered by the <a href="http://meetup.com"><img src="assets/meetup.png" alt="Meetup Logo"></a> API</p>
+<!--
+		<div class="icons">
+			<a href="https://twitter.com/jazzvanz"><i class="fa fa-twitter-square" class="jazz"></i></a>
+			<a href="https://twitter.com/giordancodes"><i class="fa fa-twitter-square" class="gior"></i></a>
+			<a href="https://twitter.com/andrewdyke_"><i class="fa fa-twitter-square" class="andy"></i></a>
+		</div>
+-->
+		<div class="credits">
+			<p class="developers">code &copy; 2015 <a target="_blank" href="https://twitter.com/jazzvanz">Jazzmin Vangeel</a>, <a target="_blank" href="https://twitter.com/giordancodes">Giordan Battaglin</a> and <a target="_blank" href="https://twitter.com/andrewdyke_">Andrew Dyke</a></p>
+		</div>
+	<div class="leftCredit">
+	<p class="api">powered by the <a href="http://meetup.com"><img src="assets/meetup.png" alt="Meetup Logo"></a> API</p>
+	</div>
 </footer>
 <!-- /footer -->
 
