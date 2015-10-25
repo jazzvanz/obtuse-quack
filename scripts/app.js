@@ -126,7 +126,7 @@ app.displayResults = function(res) {
 				city = 'N/A';
 				state = 'N/A';
 				country = 'N/A';
-			};
+			}
 			
 			// Make a p tag with the concatenated values of city, state, country, time and timezone
 			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + " (" + time + " " + timezone + ")");
@@ -136,7 +136,7 @@ app.displayResults = function(res) {
 			var photo = $('<img>').attr('src', photoLink).attr('alt', 'A picture of the event');
 
 			// Adding a link to the image we just made so user can click image to get to original event source
-			var linkImage = $('<a>').attr('href', link).append(photo);
+			var linkImage = $('<a>').attr('href', link).attr('target', '_blank').append(photo);
 			var photoDiv = $('<div>').addClass('eventPhoto').append(linkImage);
 			
 			// Add a paragraph tag with the description in it
