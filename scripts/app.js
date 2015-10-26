@@ -41,9 +41,7 @@ app.searchLocale = function() {
 				$('.loadMore').removeClass('hide');
 
 				if (app.offsetNum === 0) {
-					$.smoothScroll({
-						scrollTarget: '#dynaContent'
-					});
+					
 				}
 
 				//Call counter to add 1 to offset number
@@ -52,6 +50,13 @@ app.searchLocale = function() {
 }; 
 
 app.counter = function(counter) {
+//	smoothscrolls on the initial search only
+	if (app.offsetNum === 1){
+		$.smoothScroll({
+						scrollTarget: '#dynaContent'
+					});
+	}
+	
 	app.offsetNum = app.offsetNum + 1;
 };
 
@@ -146,7 +151,7 @@ app.displayResults = function(res) {
 			}
 			
 			// Make a p tag with the concatenated values of city, state, country, time and timezone
-			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + " (" + time + " " + timezone + ")");
+			var place = $('<p>').addClass('timeZone').text(city + ", " + state + ", " + country + " (" + time + " " + timezone +")");
 
 			// Make an image tag and assign an src and alt attribute to it
 

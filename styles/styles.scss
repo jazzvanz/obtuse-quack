@@ -14,6 +14,8 @@
 $grey: #66746A;
 $red: #E81031;
 $blue: #4D8CBF;
+$textShadow: 0px 2px 4px rgba(0,0,0,0.50);
+
 // ------------
 
 html {
@@ -26,11 +28,24 @@ html {
 	color:white;
 }
 
+#loadMoreForm{
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+	margin-top: -40px;
+}
+
 .loadMore {
 	background: $blue;
 	color: white;
 	width: 300px;
 	height: 80px;
+	font-size: 1.6rem;
+	transition: color 0.8s, background 0.8s;
+	&:hover, &:focus{
+		color: $red;
+		background: white;
+	}
 }
 
 .hide {
@@ -62,6 +77,7 @@ h1 {
 	letter-spacing: .3rem;
 	font-weight: 700;
 	text-align: center;
+	padding: 0;
 }
 
 h3 {
@@ -70,15 +86,15 @@ h3 {
 	font-size: 2.5rem;
 	line-height: 3rem;
 	color: white;
-	text-align: left;
+	text-align: center;
 	letter-spacing: .2rem;
 	margin: 0 0 10px;
 }
 
 h4.error{
-	color: $red;
+	color: white;
 	font-weight: 800;
-	background: white;
+	background: $red;
 	padding: 10px;
 	text-align: center;
 }
@@ -104,23 +120,23 @@ h4.error{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 20px;
-  background-image: url("../assets/city.jpg");
-  background-repeat: no-repeat;
+  background: url("../assets/city.jpg") no-repeat center;
   background-size: cover;
   width: 75%;
   color: white;
   align-items:center;
 	justify-content: center;
-  // border-right: 10px solid white;
-  	h1{
-  		padding-top:10%;
+	padding: 50px;
+	h1{
+  		padding-top:30px;
+			text-shadow: $textShadow;
+
   	}
   	h3 {
-  		width:25%;
   		text-align: center;
   		padding-top:20px;
   		line-height:3.5rem;
+			text-shadow: $textShadow;
   		span {
   			font-weight: 600;
   		}
@@ -137,8 +153,6 @@ aside {
 	background-color: $grey;
 	width:25%;
 	padding: 10px;
-	-webkit-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
-	-moz-box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
 	box-shadow: inset -19px 0px 61px -8px rgba(0,0,0,0.49);
 }
 
@@ -152,6 +166,7 @@ form.form {
 			letter-spacing: .1rem;
 			line-height: 2.5rem;
 			margin-bottom:15px;
+			text-shadow: $textShadow;
 		}
 
 		#submit {
@@ -173,6 +188,7 @@ form.form {
 			padding:10px;
 			width:100%;
 			margin-bottom:20px;
+			font-size: 1.8rem;
 		}
 
 	}
@@ -209,16 +225,17 @@ form.form {
 		img.icon {
 		width: 160px;
 	}
+	
+	.boxMsg {
+		max-width: 200px;
+		font-size: 1.5rem;
+		font-weight: 300;
+		text-align: center;
+		line-height: 2rem;
+	}
+	
 }
 
-.boxMsg {
-	padding-left:20px;
-	width: 200px;
-	font-size: 1.6rem;
-	font-weight: 300;
-	text-align: left;
-	line-height: 2rem;
-}
 
 //Dyna content starts
 
@@ -232,10 +249,6 @@ form.form {
 	border: 2px solid lightgray;
 	align-items: center;
 	justify-content: center;
-}
-
-div.eventBox div:nth-child(even){
-	flex-direction: row-reverse;
 }
 
 .descriptBox {
@@ -264,11 +277,15 @@ a.readMore{
 	text-align: right;
 	text-decoration: none;
 	color: $red;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: 600;
 	letter-spacing: .1rem;
 	margin-top:20px;
 	display:block;
+	transition: color 0.6s;
+	&:focus, &:hover{
+		color: $blue;
+	}
 }
 
 h2 {
@@ -355,9 +372,53 @@ footer {
 @media all and (max-width: 888px) {
 	.leftSide {
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 	}
 	aside{
 		width: 100%;
+	}
+	form.form{
+		padding-top: 0;
+		margin-top: 0;;
+	}
+}
+
+@media all and (max-width: 787px) {
+	a.readMore{
+	text-align: center;
+	}
+	.eventBox{
+		padding: 10px;
+		h2, .timeZone, .description{
+			text-align: center;
+		}
+	}
+	.eventPhoto {
+	width: calc(20% - 20px);
+	margin: 10px;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-content: center;
+	img {
+		max-width:180px;
+		margin: 20px 0;
+	}
+
+}
+	.descriptBox {
+		width: 90%;
+	}
+}
+
+
+@media all and (max-width: 603px) {
+	img.icon {
+		max-width: 100px;
+	}
+	footer{
+		p.developers{
+			font-size: 1.6rem;
+		}
 	}
 }
