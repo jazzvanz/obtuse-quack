@@ -330,7 +330,7 @@ form.form {
     width: 160px; }
   .case .boxMsg {
     max-width: 200px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 300;
     text-align: center;
     line-height: 2rem; }
@@ -477,7 +477,5 @@ footer {
 @media all and (max-width: 603px) {
   img.icon {
     max-width: 100px; }
-  .boxMsg {
-    font-size: 1rem; }
   footer p.developers {
     font-size: 1.6rem; } }
