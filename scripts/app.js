@@ -50,10 +50,14 @@ app.searchLocale = function() {
 }; 
 
 app.counter = function(counter) {
-	app.offsetNum = app.offsetNum + 1;
-	$.smoothScroll({
+//	smoothscrolls on the initial search only
+	if (app.offsetNum === 1){
+		$.smoothScroll({
 						scrollTarget: '#dynaContent'
 					});
+	}
+	
+	app.offsetNum = app.offsetNum + 1;
 };
 
 //form submit button push!

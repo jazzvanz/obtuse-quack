@@ -135,11 +135,22 @@ html {
   font-family: 'Montserrat', sans-serif;
   color: white; }
 
+#loadMoreForm {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  margin-top: -40px; }
+
 .loadMore {
   background: #4D8CBF;
   color: white;
   width: 300px;
-  height: 80px; }
+  height: 80px;
+  font-size: 1.6rem;
+  transition: color 0.8s, background 0.8s; }
+  .loadMore:hover, .loadMore:focus {
+    color: #E81031;
+    background: white; }
 
 .hide {
   display: none; }
@@ -182,14 +193,14 @@ h3 {
   font-size: 2.5rem;
   line-height: 3rem;
   color: white;
-  text-align: left;
+  text-align: center;
   letter-spacing: .2rem;
   margin: 0 0 10px; }
 
 h4.error {
-  color: #E81031;
+  color: white;
   font-weight: 800;
-  background: white;
+  background: #E81031;
   padding: 10px;
   text-align: center; }
 
@@ -228,7 +239,7 @@ h4.error {
           justify-content: center;
   padding: 20px; }
   .leftSide h1 {
-    padding-top: 10%; }
+    padding-top: 30px; }
   .leftSide h3 {
     width: 25%;
     text-align: center;
@@ -272,7 +283,8 @@ form.form {
     background-color: whitesmoke;
     padding: 10px;
     width: 100%;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-size: 1.8rem; }
 
 .threeBoxes {
   background: #E81031;
@@ -314,14 +326,12 @@ form.form {
           justify-content: center; }
   .case img.icon {
     width: 160px; }
-
-.boxMsg {
-  padding-left: 20px;
-  width: 200px;
-  font-size: 1.6rem;
-  font-weight: 300;
-  text-align: left;
-  line-height: 2rem; }
+  .case .boxMsg {
+    width: 200px;
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-align: center;
+    line-height: 2rem; }
 
 .eventBox {
   display: -webkit-flex;
