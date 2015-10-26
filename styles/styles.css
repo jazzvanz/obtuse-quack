@@ -437,8 +437,15 @@ footer {
     letter-spacing: 0.1rem;
     padding: 0 1rem;
     color: white;
-    text-align: left; }
+    text-align: center; }
   footer .leftCredit {
     text-transform: uppercase; }
   footer img {
     max-height: 20px; }
+
+@media all and (max-width: 888px) {
+  .leftSide {
+    width: 100%;
+    height: 100vh; }
+  aside {
+    width: 100%; } }
