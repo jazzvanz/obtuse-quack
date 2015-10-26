@@ -128,7 +128,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif; }
 
 .body {
   font-family: 'Montserrat', sans-serif;
@@ -171,7 +172,8 @@ h1 {
   font-size: 11rem;
   margin: 0 0 20px;
   letter-spacing: .3rem;
-  font-weight: 700; }
+  font-weight: 700;
+  text-align: center; }
 
 h3 {
   color: white;
@@ -183,6 +185,26 @@ h3 {
   letter-spacing: .2rem;
   margin: 0 0 10px; }
 
+h4.error {
+  color: #E81031;
+  font-weight: 800;
+  background: white;
+  padding: 10px;
+  text-align: center; }
+
+.visible {
+  display: block; }
+
+.invisible {
+  display: none; }
+
+.developers a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.8s; }
+  .developers a:hover, .developers a:focus {
+    color: #E81031; }
+
 .leftSide {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -193,17 +215,18 @@ h3 {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   background-image: url("../assets/city.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  max-height: 800px;
   width: 75%;
   color: white;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
   .leftSide h1 {
     padding-top: 10%; }
   .leftSide h3 {
@@ -227,7 +250,7 @@ aside {
 
 form.form {
   margin-top: 25%;
-  padding: 40px; }
+  padding: 20px; }
   form.form h4 {
     font-weight: 300;
     font-size: 1.5rem;
@@ -237,25 +260,25 @@ form.form {
   form.form #submit {
     background-color: #E81031;
     color: white;
-    width: 40%;
+    width: 100%;
     padding: 10px;
-    display: block;
-    margin: 40px 30%;
+    margin-top: 20px;
     border-radius: 5px;
     border-color: #E81031;
     text-transform: uppercase;
-    letter-spacing: .1rem; }
+    letter-spacing: .1rem;
+    font-size: 1.4rem; }
   form.form .inputBox {
     background-color: whitesmoke;
     padding: 10px;
-    width: 70%;
+    width: 100%;
     margin-bottom: 20px; }
 
 .threeBoxes {
   background: #E81031;
   width: 100%;
   color: white;
-  box-shadow: inset -19px 0px 61px -8px rgba(0, 0, 0, 0.49); }
+  box-shadow: inset -9px -6px 62px 0px rgba(0, 0, 0, 0.75); }
 
 .threeBoxWrap {
   display: -webkit-flex;
@@ -280,6 +303,9 @@ form.form {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -287,11 +313,7 @@ form.form {
       -ms-flex-pack: center;
           justify-content: center; }
   .case img.icon {
-    width: 160px;
-    margin: 10px; }
-  .case img.special {
-    width: 190px;
-    margin: 10px; }
+    width: 160px; }
 
 .boxMsg {
   padding-left: 20px;
@@ -314,7 +336,13 @@ form.form {
       -ms-flex-direction: row;
           flex-direction: row;
   border-radius: 10px;
-  border: 1px solid lightgray; }
+  border: 2px solid lightgray;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 div.eventBox div:nth-child(even) {
   -webkit-flex-direction: row-reverse;
@@ -375,16 +403,24 @@ h2 {
 
 footer {
   background: #4D8CBF;
-  height: 140px;
+  height: 180px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  box-shadow: inset -20px -12px 61px -8px rgba(0, 0, 0, 0.49); }
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-shadow: inset -20px -12px 61px -8px rgba(0, 0, 0, 0.49);
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
   footer .icons {
-    margin-left: 40px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -394,17 +430,15 @@ footer {
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
-    height: 100%;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
   footer div.icons i {
     color: #E81031;
-    font-size: 6rem;
-    padding: 20px; }
+    font-size: 3rem;
+    padding: 20px 60px;
+    margin: 0; }
   footer div.credits {
-    padding-top: 25px;
-    width: 400px;
     line-height: 2.2rem; }
   footer p {
     font-size: 1.4rem;
@@ -412,9 +446,15 @@ footer {
     letter-spacing: 0.1rem;
     padding: 0 1rem;
     color: white;
-    text-align: left; }
+    text-align: center; }
   footer .leftCredit {
-    text-transform: uppercase;
-    padding-top: 60px; }
+    text-transform: uppercase; }
   footer img {
     max-height: 20px; }
+
+@media all and (max-width: 888px) {
+  .leftSide {
+    width: 100%;
+    height: 100vh; }
+  aside {
+    width: 100%; } }

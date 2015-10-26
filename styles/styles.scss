@@ -5,7 +5,7 @@
 // Coded by Jazzmin Vangeel, Giordan Battaglin and Andrew Dyke
 // Oct. 2015
 // This application uses the Meet Up API
-// Icons are from noun project. 
+// Icons are from noun project.
 
 
 @import 'setup';
@@ -18,6 +18,7 @@ $blue: #4D8CBF;
 
 html {
 	font-size:62.5%;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .body {
@@ -43,6 +44,7 @@ html {
 	flex-wrap: wrap;
 }
 
+
 header {
 	width: 100%;
 	display: flex;
@@ -59,6 +61,7 @@ h1 {
 	margin: 0 0 20px;
 	letter-spacing: .3rem;
 	font-weight: 700;
+	text-align: center;
 }
 
 h3 {
@@ -72,20 +75,43 @@ h3 {
 	margin: 0 0 10px;
 }
 
+h4.error{
+	color: $red;
+	font-weight: 800;
+	background: white;
+	padding: 10px;
+	text-align: center;
+}
+
+.visible{
+	display: block;
+}
+
+.invisible{
+	display: none;
+}
+
+.developers a{
+	text-decoration: none;
+	color: white;
+	transition: color 0.8s;
+	&:hover, &:focus{
+		color: $red;	
+	}
+}
+
 .leftSide {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   background-image: url("../assets/city.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 800px;
-  height: 100vh;
-  max-height: 800px;
   width: 75%;
   color: white;
   align-items:center;
+	justify-content: center;
   // border-right: 10px solid white;
   	h1{
   		padding-top:10%;
@@ -118,7 +144,7 @@ aside {
 
 form.form {
 	margin-top:25%;
-	padding:40px;
+	padding:20px;
 	
 		h4 {
 			font-weight: 300;
@@ -131,20 +157,21 @@ form.form {
 		#submit {
 			background-color:$red;
 			color:white;
-			width:40%;
+			width:100%;
 			padding:10px;
-			display:block;
-			margin:40px 30%;
+//			display:block;
+			margin-top: 20px;
 			border-radius: 5px;
 			border-color: $red;
 			text-transform: uppercase;
 			letter-spacing: .1rem;
+			font-size: 1.4rem;
 		}
 
 		.inputBox {
 			background-color:whitesmoke;
 			padding:10px;
-			width:70%;
+			width:100%;
 			margin-bottom:20px;
 		}
 
@@ -175,16 +202,12 @@ form.form {
 	padding: 10px;
 	width: 33.33%;
 	flex-wrap:wrap;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 
 		img.icon {
 		width: 160px;
-		margin: 10px;
-	}
-		img.special {
-		width:190px;
-		margin:10px;
 	}
 }
 
@@ -206,23 +229,17 @@ form.form {
 	margin: 40px auto;
 	flex-direction: row;
 	border-radius: 10px;
-	border: 1px solid lightgray;
-	// align-items: center;
-	// justify-content: center;
+	border: 2px solid lightgray;
+	align-items: center;
+	justify-content: center;
 }
 
 div.eventBox div:nth-child(even){
-		flex-direction: row-reverse;
-	}
-
+	flex-direction: row-reverse;
+}
 
 .descriptBox {
 	width:70%;
-	// background-color:pink;
-	// display: flex;
-	// flex-wrap: wrap;
-	// justify-content: space-around;
-	// align-items: center;
 }
 
 p.description{
@@ -276,7 +293,6 @@ h2 {
 	margin-left:80px;
 	justify-content: center;
 	img {
-		// width: 100%;
 		max-width:225px;
 	}
 
@@ -286,32 +302,31 @@ h2 {
 
 footer {
 	background: $blue;
-	height: 140px;
+	height: 180px;
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	box-shadow: inset -20px -12px 61px -8px rgba(0,0,0,0.49);
+	justify-content: center;
+	align-items: center;
 
 	.icons {
-		margin-left:40px;
 		display:flex;
 		flex-wrap:wrap;
 		flex-direction: row;
-		// width:100%;
-		height: 100%;
+//		height: 100%;
 		align-items:center;
-		// margin-right:60px;
 	}
 
 	div.icons i {
 		// fill: $grey;
 		color:$red;
-		font-size:6rem;
-		padding:20px;
+		font-size:3rem;
+		padding:20px 60px;
+		margin: 0;
 		}
 
 	div.credits {
-		padding-top: 25px;
-		width:400px;
 		line-height: 2.2rem;
 	}
 
@@ -323,20 +338,26 @@ footer {
 		letter-spacing: 0.1rem;
 		padding: 0 1rem;
 		color: white;
-		text-align: left;
+		text-align: center;
 	}
 
 
 	.leftCredit {
-		// margin-left:100px;
 		text-transform: uppercase;
-		padding-top:60px;
-		// text-align: right;
-		// flex: 3 0 2;
 
 	}
 
 	img{
 		max-height: 20px;
+	}
+}
+
+@media all and (max-width: 888px) {
+	.leftSide {
+		width: 100%;
+		height: 100vh;
+	}
+	aside{
+		width: 100%;
 	}
 }
