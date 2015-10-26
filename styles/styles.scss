@@ -40,6 +40,7 @@ html {
 	color: white;
 	width: 300px;
 	height: 80px;
+	border: solid 3px $red;
 	font-size: 1.6rem;
 	transition: color 0.8s, background 0.8s;
 	&:hover, &:focus{
