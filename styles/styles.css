@@ -210,7 +210,6 @@ h4.error {
   background-image: url("../assets/city.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 800px;
   width: 75%;
   color: white;
   -webkit-align-items: center;
