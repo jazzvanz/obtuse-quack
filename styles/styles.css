@@ -356,11 +356,6 @@ form.form {
       -ms-flex-pack: center;
           justify-content: center; }
 
-div.eventBox div:nth-child(even) {
-  -webkit-flex-direction: row-reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse; }
-
 .descriptBox {
   width: 70%; }
 
@@ -378,11 +373,14 @@ a.readMore {
   text-align: right;
   text-decoration: none;
   color: #E81031;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: .1rem;
   margin-top: 20px;
-  display: block; }
+  display: block;
+  transition: color 0.6s; }
+  a.readMore:focus, a.readMore:hover {
+    color: #4D8CBF; }
 
 h2 {
   padding-top: 20px;
@@ -473,6 +471,34 @@ footer {
   form.form {
     padding-top: 0;
     margin-top: 0; } }
+
+@media all and (max-width: 787px) {
+  a.readMore {
+    text-align: center; }
+  .eventBox {
+    padding: 10px; }
+    .eventBox h2, .eventBox .timeZone, .eventBox .description {
+      text-align: center; }
+  .eventPhoto {
+    width: calc(20% - 20px);
+    margin: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .eventPhoto img {
+      max-width: 180px;
+      margin: 20px 0; }
+  .descriptBox {
+    width: 90%; } }
 
 @media all and (max-width: 603px) {
   img.icon {
