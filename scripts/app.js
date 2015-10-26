@@ -13,6 +13,8 @@ app.radius = 20;
 app.date = '';
 app.results = {};
 
+app.offsetNum = 0;
+
 var altFormat = $( "#datepicker" ).datepicker( "option", "altFormat" );
 
 
@@ -26,24 +28,38 @@ app.searchLocale = function() {
 			key: app.key,
 			category: '34',
 			zip: app.zip,
-			radius: app.radius
-			}
+			radius: app.radius,
+			page: 10,
+			offset: app.offsetNum
+		}
 		}).then(function(res) {
 				//Using .data to go a level deeper into res then storing as method in app
 				app.results = res.data;
 				// Calling our displayResults function and passing it the results from our ajax request
 				app.displayResults(app.results);
-				$.smoothScroll({
-					scrollTarget: '#dynaContent'
+
+				$('.loadMore').removeClass('hide');
+
+				if (app.offsetNum === 0) {
+					$.smoothScroll({
+						scrollTarget: '#dynaContent'
 					});
+				}
+
+				//Call counter to add 1 to offset number
+				app.counter(app.offsetNum);
 	});
 }; 
 
+app.counter = function(counter) {
+	app.offsetNum = app.offsetNum + 1;
+};
+
 //form submit button push!
-app.formSubmit = function(){
-	$('#submit').on('click', function(e){
+app.formSubmit = function() {
+	$('#submit').on('click', function(e) {
 		e.preventDefault();
-		$('#dynaContent').empty();
+		
 		app.zip = $('#address').val().toUpperCase();
 		
 //		test to make sure a valid us or canadian zip/postal was entered
@@ -54,7 +70,7 @@ app.formSubmit = function(){
 			app.date = $( '#unixDate' ).val();
 			$( '.error' ).addClass( 'invisible' ).removeClass( 'visible' );
 			
-		}else{
+		} else {
 			$( '.error' ).text('Please enter a valid US or Canadian Zip / Postal Code').addClass( 'visible' ).removeClass( 'invisible' );
 		}
 	});
@@ -164,6 +180,14 @@ app.displayResults = function(res) {
 }; 
 
 
+// Load More Button
+$('.loadMore').on('click', function(event){
+		// prevent default form submission and instead
+		event.preventDefault();
+		app.searchLocale();
+});
+
+
 // Init app
 app.init = function() {
 	app.formSubmit();
@@ -174,6 +198,8 @@ app.init = function() {
 		altFormat: '@',
 		dateFormat: 'mm-dd-yy'
 	});
+
+	app.offsetNum = app.offsetNum + 1;
 };
 
 // Run app Run!!

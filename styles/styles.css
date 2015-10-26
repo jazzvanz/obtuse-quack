@@ -134,6 +134,15 @@ html {
   font-family: 'Montserrat', sans-serif;
   color: white; }
 
+.loadMore {
+  background: #4D8CBF;
+  color: white;
+  width: 300px;
+  height: 80px; }
+
+.hide {
+  display: none; }
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
