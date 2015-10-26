@@ -41,9 +41,7 @@ app.searchLocale = function() {
 				$('.loadMore').removeClass('hide');
 
 				if (app.offsetNum === 0) {
-					$.smoothScroll({
-						scrollTarget: '#dynaContent'
-					});
+					
 				}
 
 				//Call counter to add 1 to offset number
@@ -53,6 +51,9 @@ app.searchLocale = function() {
 
 app.counter = function(counter) {
 	app.offsetNum = app.offsetNum + 1;
+	$.smoothScroll({
+						scrollTarget: '#dynaContent'
+					});
 };
 
 //form submit button push!
