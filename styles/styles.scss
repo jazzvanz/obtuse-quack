@@ -14,6 +14,8 @@
 $grey: #66746A;
 $red: #E81031;
 $blue: #4D8CBF;
+$textShadow: 0px 2px 4px rgba(0,0,0,0.50);
+
 // ------------
 
 html {
@@ -124,15 +126,17 @@ h4.error{
   color: white;
   align-items:center;
 	justify-content: center;
-	padding: 20px;
+	padding: 50px;
 	h1{
   		padding-top:30px;
+			text-shadow: $textShadow;
+
   	}
   	h3 {
-  		width:25%;
   		text-align: center;
   		padding-top:20px;
   		line-height:3.5rem;
+			text-shadow: $textShadow;
   		span {
   			font-weight: 600;
   		}
@@ -162,6 +166,7 @@ form.form {
 			letter-spacing: .1rem;
 			line-height: 2.5rem;
 			margin-bottom:15px;
+			text-shadow: $textShadow;
 		}
 
 		#submit {
@@ -222,7 +227,7 @@ form.form {
 	}
 	
 	.boxMsg {
-		width: 200px;
+		max-width: 200px;
 		font-size: 1.6rem;
 		font-weight: 300;
 		text-align: center;
@@ -378,7 +383,16 @@ footer {
 	}
 }
 
-@media all and (max-width: 680px) {
+@media all and (max-width: 603px) {
 	img.icon {
+		max-width: 100px;
+	}
+	.boxMsg{
+		font-size: 1rem;
+	}
+	footer{
+		p.developers{
+			font-size: 1.6rem;
+		}
 	}
 }
